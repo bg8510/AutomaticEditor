@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutomaticEditor
@@ -67,8 +66,12 @@ namespace AutomaticEditor
             Main main = new Main();
             main.StartEditing(introString, isAmerican);
 
-            MessageBox.Show("Editing finished with no errors.", "We be done.", MessageBoxButtons.OK);
+            this.groupBox1.Visible = false;
+            this.groupBox2.Visible = false;
+            this.buttonStart.Visible = false;
 
+            this.Visible = false;
+            
             return;
         }
 
@@ -131,6 +134,11 @@ namespace AutomaticEditor
             else checkBoxAmerican.Checked = true;
         }
 
-    #endregion
+        #endregion
+
+        private void mainContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

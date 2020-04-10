@@ -13,17 +13,44 @@ namespace AutomaticEditor
 {
     public partial class ThisAddIn
     {
-        private SidePanel sidePanel;
+        public static SidePanel sidePanel;
+        //public static SentencePanel sentences;
         public Microsoft.Office.Tools.CustomTaskPane customPanel;
+        //public static Microsoft.Office.Tools.CustomTaskPane sentencePanel;
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             sidePanel = new SidePanel();
-            customPanel = this.CustomTaskPanes.Add(sidePanel, "Cactus Editor");
+            customPanel = this.CustomTaskPanes.Add(sidePanel, "Grammarlin Editor");
+            customPanel.Visible = true;
+
+            //sentences = new SentencePanel();
+            //sentencePanel = this.CustomTaskPanes.Add(sentences, "Grammarlin");
+            //sentencePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionTop;
+            //DisactivateSentencePanel();
+        }
+
+        public void ActivateCustomPanel()
+        {
             customPanel.Visible = true;
         }
 
-        private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
+        public void DisactivateCustomPanel()
+        {
+            customPanel.Visible = false;
+        }
+
+        //public void ActivateSentencePanel()
+        //{
+        //    sentencePanel.Visible = true;
+        //}
+
+        //public void DisactivateSentencePanel()
+        //{
+        //    sentencePanel.Visible = false;
+        //}
+
+        private static void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
         }
 

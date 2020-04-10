@@ -1,1 +1,1 @@
-# AutomaticEditor
+# AutomaticEditor using the Grammarbot API

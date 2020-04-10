@@ -14,3 +14,5 @@ C:\Users\user\OneDrive\Documents\Documents for Backup\Cactus Documents\Automatic
 C:\Users\user\OneDrive\Documents\Documents for Backup\Cactus Documents\AutomaticEditor\AutomaticEditor\AutomaticEditor\bin\Debug\Newtonsoft.Json.dll
 C:\Users\user\OneDrive\Documents\Documents for Backup\Cactus Documents\AutomaticEditor\AutomaticEditor\AutomaticEditor\bin\Debug\Newtonsoft.Json.xml
 C:\Users\user\OneDrive\Documents\Documents for Backup\Cactus Documents\AutomaticEditor\AutomaticEditor\AutomaticEditor\obj\Debug\AutomaticEditor.SidePanel.resources
+C:\Users\user\OneDrive\Documents\Documents for Backup\Cactus Documents\AutomaticEditor\AutomaticEditor\AutomaticEditor\obj\Debug\AutomaticEditor.csproj.CoreCompileInputs.cache
+C:\Users\user\OneDrive\Documents\Documents for Backup\Cactus Documents\AutomaticEditor\AutomaticEditor\AutomaticEditor\obj\Debug\AutomaticEditor.SentencePanel.resources

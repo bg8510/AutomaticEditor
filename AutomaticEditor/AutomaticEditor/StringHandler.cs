@@ -10,7 +10,7 @@ namespace AutomaticEditor
         // The 
         public StringHandler()
         {
-            commentTexts = new List<string>(65);
+            commentTexts = new List<string>();
 
             commentTexts.Add(" --------------------------------------------------------");
             commentTexts.Add(" Please make sure I did not change your intended meaning.");

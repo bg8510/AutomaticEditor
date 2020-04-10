@@ -51,6 +51,7 @@ namespace AutomaticEditor
             this.AmericanStyle = this.Factory.CreateRibbonCheckBox();
             this.BritishStyle = this.Factory.CreateRibbonCheckBox();
             this.StartGroup = this.Factory.CreateRibbonGroup();
+            this.StartButton = this.Factory.CreateRibbonButton();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.label3 = this.Factory.CreateRibbonLabel();
             this.dropDownTextOptions = this.Factory.CreateRibbonDropDown();
@@ -59,7 +60,6 @@ namespace AutomaticEditor
             this.dropDownArticles = this.Factory.CreateRibbonDropDown();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.checkBoxSidePanel = this.Factory.CreateRibbonCheckBox();
-            this.StartButton = this.Factory.CreateRibbonButton();
             this.button1 = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.TextGroup.SuspendLayout();
@@ -151,6 +151,15 @@ namespace AutomaticEditor
             this.StartGroup.Label = "Start";
             this.StartGroup.Name = "StartGroup";
             // 
+            // StartButton
+            // 
+            this.StartButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.StartButton.Image = ((System.Drawing.Image)(resources.GetObject("StartButton.Image")));
+            this.StartButton.Label = "Rock the Casbah";
+            this.StartButton.Name = "StartButton";
+            this.StartButton.ShowImage = true;
+            this.StartButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Button1_Click);
+            // 
             // group1
             // 
             this.group1.Items.Add(this.label3);
@@ -201,15 +210,6 @@ namespace AutomaticEditor
             this.checkBoxSidePanel.Name = "checkBoxSidePanel";
             this.checkBoxSidePanel.ScreenTip = "Click to turn the side panel off and on.";
             this.checkBoxSidePanel.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.checkBoxSidePanel_Click);
-            // 
-            // StartButton
-            // 
-            this.StartButton.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.StartButton.Image = ((System.Drawing.Image)(resources.GetObject("StartButton.Image")));
-            this.StartButton.Label = "Rock the Casbah";
-            this.StartButton.Name = "StartButton";
-            this.StartButton.ShowImage = true;
-            this.StartButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Button1_Click);
             // 
             // button1
             // 
