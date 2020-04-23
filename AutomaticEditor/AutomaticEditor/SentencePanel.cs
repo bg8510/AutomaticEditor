@@ -1,8 +1,10 @@
 ﻿using GrammarBotClient;
 using Microsoft.Office.Interop.Word;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Office.Interop.Word;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace AutomaticEditor
@@ -12,10 +14,26 @@ namespace AutomaticEditor
         public delegate void ErrorResolved();
         public static Document currentDocument;
 
-        private Queue<Matches> errorQ = new Queue<Matches>();                                    // errorList is a queue of all the errors in the currentDocument
-        private Matches nextMatch;
-        private int offset, charCount;
+        public struct Error
+        {
+            public Matches match;
+            public Range paraRange;
+            public int fullOffset;
+
+            public int Compare(Error a, Error b) 
+            {
+                if (a.fullOffset > b.fullOffset) return 1;
+                if (a.fullOffset < b.fullOffset) return -1;
+                return 0;
+            }
+        };
+        private Error nextMatch;
+        private List<Error> errorL = new List<Error>();                            // errorL is a List<> of all the Error structs for the currentDocument to be sorted into a queue
+        private Queue<Error> errorQ = new Queue<Error>();                          // errorQ is a Queue<> of all the Error structs for the currentDocument
+
+        private int sentenceOffset, charCount;  // fullOffset;
         private string editedSentence;
+        private Range errorRange;
 
         public SentencePanel(Document currentDoc)
         {
@@ -26,20 +44,20 @@ namespace AutomaticEditor
             StartEdit.Enabled = true;
         }
 
-        private
-        void RejectEdit_Click(object sender, EventArgs e)
+        private void RejectEdit_Click(object sender, EventArgs e)
         {
             GetNextError();
-
         }
 
         private void ApplyEdit_Click(object sender, EventArgs e)
         {
-            string errString = nextMatch.Sentence.Substring(offset, charCount);
+            string errString = nextMatch.match.replacements[0].Value;
+            errorRange = currentDocument.Range(nextMatch.fullOffset, nextMatch.fullOffset + charCount);
 
-            nextMatch.Sentence.Replace(errString, nextMatch.replacements[0].Value);
+            errorRange.Text = errString;
 
             GetNextError();
+
         }
         
     #region Setters and Getters
@@ -74,7 +92,17 @@ namespace AutomaticEditor
 
         private void StartEdit_Click(object sender, EventArgs e)
         {
+            // Sort the List of Error structs
+            errorL.Sort((M1, M2) => M1.Compare(M1, M2));
+
+            // Create a Queue<Error> from the sorted List<Error>
+            for (int i = 0; i < errorL.Count; i++)
+            {
+                errorQ.Enqueue(errorL[i]);
+            }
+
             // Get the first error
+            
             GetNextError();
 
             StartEdit.Enabled = false;
@@ -83,24 +111,42 @@ namespace AutomaticEditor
             ApplyEdit.Enabled = true;
         }
 
-        private Matches GetNextError()
+        private Error GetNextError()
         {
-            nextMatch = errorQ.Dequeue();
+            if (errorQ.Count > 0)
+            {
+                nextMatch = errorQ.Dequeue();
+            }
+            else  // It's finished with all the errors in the queue, so start spellchecker and grammar checker
+            {
+                this.Visible = false;
+                object optional = Missing.Value;
+                currentDocument.CheckSpelling(ref optional, true, true, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional);
+                currentDocument.CheckGrammar();
+            }
+            
+            try
+            {
+                if (errorQ.Count > 0) SetErrorMessage(nextMatch.match.Message.ToString());
+                else if (errorQ.Count == 0) SetErrorMessage(nextMatch.match.Message.ToString() + "\n \n \n LAST ERROR");
 
-            SetErrorMessage(nextMatch.Message.ToString());
-            SetOriginalSentence(nextMatch.Sentence.ToString());
+                sentenceOffset = (int)nextMatch.match.offset;
+                //fullOffset = nextMatch.paraRange.Start + sentenceOffset;
+                charCount = (int)nextMatch.match.Length;
+                //editedSentence = nextMatch.match.Sentence.Remove(sentenceOffset, charCount);
+                //editedSentence = editedSentence.Insert(sentenceOffset, nextMatch.match.replacements[0].Value);
+                
+                SetOriginalSentence(nextMatch.match.Sentence.Substring(sentenceOffset, charCount));
+                editedSentence = nextMatch.match.replacements[0].Value;
+                SetEditedSentence(editedSentence);
 
-            offset = (int)nextMatch.offset;
-            charCount = (int)nextMatch.Length;
-            editedSentence = nextMatch.Sentence.Remove(offset, charCount);
-            editedSentence = editedSentence.Insert(offset, nextMatch.replacements[0].Value.ToString());
-            SetEditedSentence(editedSentence);
-
-            // Move the document to the relevant text
-            currentDocument.Content.Find.Execute(FindText: nextMatch.Sentence.Remove(20).ToString());
-
-            // Select the error in the original sentence textbox
-            OriginalSentence.Select(offset, charCount);
+                // Select the error in the main text
+                currentDocument.Range(nextMatch.fullOffset, nextMatch.fullOffset + charCount).Select();         
+            }
+            catch (Exception EX)
+            {
+                //MessageBox.Show(EX.ToString());
+            }
 
             return nextMatch;
         }
@@ -109,12 +155,19 @@ namespace AutomaticEditor
 
         public void RunGrammarbot()
         {
-            foreach (Paragraph para in currentDocument.Paragraphs)
+            //foreach (Paragraph para in currentDocument.Paragraphs)
+            for (int p = 1; p <= currentDocument.Paragraphs.Count; p++)
             {
-                foreach (Range sentence in para.Range.Sentences)
+                for (int s = 1; s <= currentDocument.Paragraphs[p].Range.Sentences.Count; s++)
                 {
-                    CheckAsync(sentence);
+                    //Range myRange = currentDocument.Paragraphs[p].Range;
+                    //int myCount = currentDocument.Paragraphs[p].Range.Sentences.Count;
+                    //var mySentence = currentDocument.Paragraphs[p].Range.Sentences[s];
+                    //string myText = currentDocument.Paragraphs[p].Range.Sentences[s].Text;
 
+                    Range myRange = currentDocument.Range(currentDocument.Paragraphs[p].Range.Sentences[s].Start, currentDocument.Paragraphs[p].Range.Sentences[s].End);
+
+                    CheckAsync(currentDocument.Paragraphs[p].Range.Sentences[s], myRange);
                 }
             }
 
@@ -122,12 +175,14 @@ namespace AutomaticEditor
         }
 
         // This method handles the errors in one sentence
-        private async void CheckAsync(Range currentRange)
+        private async void CheckAsync(Range currentRange, Range paraRange)
         {
             GrammarBotClient.GrammarBot grammarBot = new GrammarBotClient.GrammarBot(new GrammarBotClient.ApiConfig());
             //string editedSentence;
             //int offset, charCount;
-            GrammarBotClient.Matches error;
+            //GrammarBotClient.Matches error;
+            Error currentError;
+            currentError.paraRange = paraRange;
 
             try
             {
@@ -139,14 +194,15 @@ namespace AutomaticEditor
                     {
                         for (int i = 0; i < grammar.CheckContent.Matches.Count; i++)
                         {
-                            // Each "error" describes one error in a sentence
-                            error = grammar.CheckContent.Matches[i];
-
-                            // Add the current error to the error queue
-                            errorQ.Enqueue(error);
+                            // Each "currentError" describes one error in a sentence
+                            currentError.match = grammar.CheckContent.Matches[i];
+                            currentError.fullOffset = paraRange.Start + (int)grammar.CheckContent.Matches[i].offset;
 
                             // If it is not a valid error type, skip this 'item'
-                            if (!IsErrorValid(error)) continue;
+                            if (!IsErrorValid(currentError.match)) continue;
+
+                            // Add the current error to the error queue
+                            errorL.Add(currentError); 
 
                             //sentences.SetErrorMessage(error.Message.ToString());
                             //sentences.SetOriginalSentence(error.Sentence.ToString());
@@ -193,11 +249,16 @@ namespace AutomaticEditor
                 MessageBox.Show(EX.ToString());
 
                 // Add an error comment
-                Range errRng = currentDocument.Range(0, 1);
-                currentDocument.Comments.Add(errRng, "GrammarBot EXCEPTION! \n\n" + EX.ToString());
+                //Range errRng = currentDocument.Range(0, 1);
+                //currentDocument.Comments.Add(errRng, "GrammarBot EXCEPTION! \n\n" + EX.ToString());
             }
 
             return;
+        }
+
+        private void OriginalSentence_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         // This method returns 'false' if it is an error type that I do NOT want checked
@@ -213,6 +274,9 @@ namespace AutomaticEditor
             if (error.Font.Subscript == -1 || error.Font.Superscript == -1) return false;               // -1 means True
             if (error.Font.Subscript == 9999999 || error.Font.Superscript == 9999999) return false;     // means "undefined," a mixture of True and False
 
+            // Reject this error because it usually means there are equations fooling it into thinking that there's a new sentence.
+            if (item.Message.StartsWith("This sentence does not start with an uppercase")) return false;
+
             // If it's a spelling error, check if the error text is in all caps, as in: it's an abbreviation
             // This must be the last check; if it returns true (not all caps), nothing after it will get checked.
             if (item.Message.StartsWith("Possible spelling"))
@@ -224,7 +288,7 @@ namespace AutomaticEditor
                     if (activeSentence[(int)item.offset + i].ToString() == activeSentence[(int)item.offset + i].ToString().ToUpper()) capCount++;
                 }
 
-                if (capCount == item.Length - 1) return false;                                          // it was all caps, so probably an abbreviation
+                if (capCount == item.Length || capCount == item.Length - 1) return false;                  // it was all caps, so probably an abbreviation (the -1 is to account for a possible 's' at the end)
             }
 
             return true;

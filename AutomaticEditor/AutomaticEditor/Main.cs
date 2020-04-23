@@ -34,8 +34,8 @@ namespace AutomaticEditor
             bool result;
 
             sentences = new SentencePanel(currentDocument);
-            sentencePanel = Globals.ThisAddIn.CustomTaskPanes.Add(sentences, "Grammarlin");
-            sentencePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionTop;
+            sentencePanel = Globals.ThisAddIn.CustomTaskPanes.Add(sentences, "Grammatlin");
+            sentencePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight;
             DisactivateSentencePanel();
 
             // Activate track changes
@@ -46,6 +46,8 @@ namespace AutomaticEditor
             // Set the language version
             if (isAmericanStyle) Globals.ThisAddIn.Application.Selection.Range.LanguageID = WdLanguageID.wdEnglishUS;
             else Globals.ThisAddIn.Application.Selection.Range.LanguageID = WdLanguageID.wdEnglishUK;
+
+            //goto SkipStringReplacer;
 
             // Call the stringReplacer method for each string that should be changed. Capture the result when necessary and use it to indicate whether the comment has already been made for that issue.
             StringReplacer("What's more", "Also", "“What's more” is too informal for academic writing.");
@@ -109,11 +111,12 @@ namespace AutomaticEditor
             result = StringReplacer("researches", "studies", "The plural form “researches” is very rarely used. “Studies” is better.", true);
             StringReplacer("Researches", "Studies", "The plural form “researches” is very rarely used. “Studies” is better.", true, commentHasBeenMade: result);
 
-            StringHighlighter("paper");
+SkipStringReplacer:
+
+            //StringHighlighter("paper");
 
 
             //RegexReplacer(@"\w+, \w+ and ", @"\w+, \w+, and ", "In academic writing, insert a comma before the conjunction that precedes the last element of a series (e.g., bread, eggs, and milk).");
-            //Spelldoink();
 
             // Add the chosen introductory comment at the currently selected range
             //currentDocument.Comments.Range.Font.Name = "Calibri";
@@ -132,143 +135,7 @@ namespace AutomaticEditor
         }
 
     #endregion
-    //#region GrammarBot
 
-    //    private void RunGrammarbot()
-    //    {
-    //        foreach (Paragraph para in currentDocument.Paragraphs)
-    //        {
-    //            foreach (Range sentence in para.Range.Sentences)
-    //            {
-    //                CheckAsync(sentence);
-    //            }
-    //        }
-           
-    //        return;
-    //    }
-
-    //    // This method handles the errors in one sentence
-    //    private async void CheckAsync(Range currentRange)
-    //    {
-    //        GrammarBotClient.GrammarBot grammarBot = new GrammarBotClient.GrammarBot(new GrammarBotClient.ApiConfig());
-    //        //string editedSentence;
-    //        //int offset, charCount;
-    //        GrammarBotClient.Matches error;
-    //        int success;
-
-    //        try
-    //        {
-    //            var grammar = await grammarBot.CheckAsync(currentRange.Text);
-
-    //            if (grammar.Success)
-    //            {
-    //                try
-    //                {
-    //                    for(int i = 0; i < grammar.CheckContent.Matches.Count; i++)
-    //                    {
-    //                        // Each "error" describes one error in a sentence
-    //                        error = grammar.CheckContent.Matches[i];
-
-    //                        // If it is not a valid error type, skip this 'item'
-    //                        if (!IsErrorValid(error)) continue;
-
-    //                        // Pass control to the top panel, through the HandleErrorAsync method, and wait
-    //                        await HandleErrorAsync(error);
-
-    //                        //sentences.SetErrorMessage(error.Message.ToString());
-    //                        //sentences.SetOriginalSentence(error.Sentence.ToString());
-
-    //                        //offset = (int)error.offset;
-    //                        //charCount = (int)error.Length;
-    //                        //editedSentence = error.Sentence.Remove(offset, charCount);
-    //                        //editedSentence = editedSentence.Insert(offset, error.replacements[0].Value.ToString());
-    //                        //sentences.SetOriginalSentence(editedSentence);
-
-    //                        //rngStart = currentRange.Sentences[numSentence].Start + item.offset;
-    //                        //rngEnd = rngStart + item.Length;
-
-    //                        //rng = currentDocument.Range(rngStart, rngEnd);
-    //                        //rng.HighlightColorIndex = WdColorIndex.wdDarkYellow;
-
-    //                        // If there are any suggested replacements, show the first one in a Comment
-    //                        //if (item.replacements.Count > 0)
-    //                        //{
-    //                        //    // Add highlight and comment
-    //                        //    currentDocument.Comments.Add(rng, item.replacements[0].Value.ToString() + "\nrng.Start: " + rng.Start.ToString() + "\nerror: " + item.Message);
-
-    //                        //    // Replace an error with its suggested correction
-    //                        //    ReplaceText(rng, item.replacements[0].Value.ToString());
-    //                        //}
-    //                    }
-    //                }
-    //                catch (Exception EX)
-    //                {
-    //                    MessageBox.Show(EX.ToString());
-
-    //                    // Add an error comment
-    //                    Range errRng = currentDocument.Range(0, 1);
-    //                    currentDocument.Comments.Add(errRng, "EXCEPTION! \n\n" + EX.ToString());
-    //                }
-    //            }
-    //            else
-    //            {
-    //                Console.WriteLine(grammar.Message);
-    //            }
-    //        }
-    //        catch (Exception EX)
-    //        {
-    //            MessageBox.Show(EX.ToString());
-
-    //            // Add an error comment
-    //            Range errRng = currentDocument.Range(0, 1);
-    //            currentDocument.Comments.Add(errRng, "GrammarBot EXCEPTION! \n\n" + EX.ToString());
-    //        }
-
-    //        return;
-    //    }
-
-    //    // This method returns 'false' if it is an error type that I do NOT want checked
-    //    private bool IsErrorValid(GrammarBotClient.Matches item)
-    //    {
-    //        String activeSentence = item.Sentence;
-
-    //        if (item.Sentence.StartsWith("%")) return false;                                // if the sentence starts with the LaTex '%,' ignore it.
-    //        if (item.Sentence.IndexOf("(") == item.offset) return false;                    // if the error starts with a '(,' ignore it.
-
-    //        // Reject any error with sub- or superscript formatting
-    //        Range error = currentDocument.Range(item.offset + 4, item.offset + 4);
-    //        if (error.Font.Subscript == -1 || error.Font.Superscript == -1) return false;               // -1 means True
-    //        if (error.Font.Subscript == 9999999 || error.Font.Superscript == 9999999) return false;     // means "undefined," a mixture of True and False
-
-    //        // If it's a spelling error, check if the error text is in all caps, as in: it's an abbreviation
-    //        // This must be the last check; if it returns true (not all caps), nothing after it will get checked.
-    //        if (item.Message.StartsWith("Possible spelling"))
-    //        {
-    //            int capCount = 0;
-    //            for (int i = 0; i < item.Length - 1; i++)
-    //            {
-    //                // Check if each char is a capital and increment the count
-    //                if (activeSentence[(int)item.offset + i].ToString() == activeSentence[(int)item.offset + i].ToString().ToUpper()) capCount++;
-    //            }
-                
-    //            if (capCount == item.Length - 1) return false;                                          // it was all caps, so probably an abbreviation
-    //        }
-
-    //        return true;
-    //    }
-
-    //    private void ReplaceText(Range localCurrentRange, string replacement)
-    //    {
-    //        int stringLength = localCurrentRange.End - localCurrentRange.Start;
-
-    //        localCurrentRange.Delete(WdUnits.wdCharacter, stringLength);
-    //        localCurrentRange.SetRange(localCurrentRange.Start, localCurrentRange.Start);
-    //        localCurrentRange.InsertAfter(replacement);
-
-    //        return;
-    //    }
-
-    //    #endregion
 
     #region String Replacer method
 
@@ -408,12 +275,9 @@ namespace AutomaticEditor
 
         private void Spelldoink()
         {
-            //string result = "Spelled incorrectly.";
-
             object optional = Missing.Value;
             currentDocument.CheckSpelling(ref optional, true, true, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional);
             currentDocument.CheckGrammar();
-
         }
 
         #endregion

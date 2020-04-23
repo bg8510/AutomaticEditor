@@ -48,13 +48,18 @@ namespace AutomaticEditor
         {
             String selectedText = dropDownTextOptions.SelectedItem.Label;
 
+            if (selectedText.StartsWith(" "))
+            {
+                selectedText = selectedText.TrimStart(' ');
+            }
+             
             // Add the selected comment at the currently selected range
             Comment comment = Globals.ThisAddIn.Application.ActiveDocument.Comments.Add(Globals.ThisAddIn.Application.Selection.Range, selectedText);
             comment.Range.Font.Name = "Calibri";
 
             // Do not delete any text that starts with a blank. The blank indicates a text that might be repeated in comments.
-            if (selectedText.StartsWith(" "))
-            {       
+            if (dropDownTextOptions.SelectedItem.Label.StartsWith(" "))
+            {
                 // Set the selected item back to the first (the "---------" one)
                 dropDownTextOptions.SelectedItem = dropDownTextOptions.Items[0];
 

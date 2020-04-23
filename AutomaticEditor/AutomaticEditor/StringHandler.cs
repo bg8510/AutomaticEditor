@@ -26,7 +26,7 @@ namespace AutomaticEditor
             commentTexts.Add("Do not put a comma before the conjunction because this is not two sentences. It is one subject with a compound predicate.");
             commentTexts.Add("The pronoun “which” is used to introduce nonessential or supplementary information, and the pronoun “that” is used to include essential information.");
             commentTexts.Add("In academic writing, insert a comma before the conjunction that precedes the last element of a series of more than two items (e.g., bread, eggs, and milk).");
-            commentTexts.Add("Compound adjectives that modify a noun are typically hyphenated but not when the first word of the adjective is an adverb ending with “-ly.”");
+            commentTexts.Add("Compound adjectives that modify a noun are typically hyphenated (But not when the first word of the adjective is an adverb ending with “-ly.”)");
             commentTexts.Add("Hyphenate all the words in a compound adjective.");
             commentTexts.Add("For clarity, the words or phrases in a list should be parallel in form.");
             commentTexts.Add("A period is typically not used at the end of a title or heading.");
@@ -38,6 +38,10 @@ namespace AutomaticEditor
             commentTexts.Add("The past tense is commonly used in academic writing when describing the methods and steps used in an experiment that has already been conducted.");            
             commentTexts.Add("The word “since” can have a time-related meaning or can indicating causality. To avoid confusion, replace “since” with synonyms such as “because.”");
             commentTexts.Add("Use the plural form to refer to a category of thing, as opposed to an instance of the thing.");
+            commentTexts.Add("Do not start a caption with a phrase like “Flowchart of…” or “Graph of…” Just state what the image shows.");
+            commentTexts.Add("Use an “en dash,” with spaces, for ranges. (In Word, an en dash is Ctrl + -)");
+            commentTexts.Add("Do not start a caption with an article, “a,” “an,” or “the.”");
+            commentTexts.Add("This word is acting as an adjective here, so it does not get the plural form.");
             commentTexts.Add(" ");
             commentTexts.Add("     WORDINESS, CONTRACTIONS -------------");
             commentTexts.Add("To achieve conciseness, use the word “respectively” to link two or more groups of words.");
@@ -50,8 +54,6 @@ namespace AutomaticEditor
             commentTexts.Add("You do not need to define an abbreviation in the abstract that you never use in the abstract.");
             commentTexts.Add("Once you define an abbreviation, use it.");
             commentTexts.Add("Define an abbreviation the first time you use it. Please make sure this is the correct definition.");
-            commentTexts.Add("It is not necessary to introduce an element name before using the symbol.");
-            commentTexts.Add("Units of measure accompanying numerical values must be abbreviated suitably.");
             commentTexts.Add("Redefine the abbreviation in the main text. Some readers will not read both the abstract and the main text.");
             commentTexts.Add(" ");
             commentTexts.Add("     COMPOUND SENTENCE STUFF ----------------------------");
@@ -76,10 +78,8 @@ namespace AutomaticEditor
             commentTexts.Add("Avoid using numerals at the beginning of sentences, titles, or headings.");
             commentTexts.Add(" ");
             commentTexts.Add("Figures and tables should be referred to in the present tense.");
-            commentTexts.Add("Maintain a formal tone in academic writing.");
             commentTexts.Add("The phrase “et al.” is accompanied by a plural verb."); 
             commentTexts.Add("The preposition “in” is used when describing a change, such as an increase or decrease, whereas “of” is used for the magnitude of the change.");
-            commentTexts.Add("The word “affect” is a verb and it refers to the act of influencing someone or something. The word “effect,” on the other hand, can be used as a noun or as a verb, depending on the context. Their meanings are different.");
             commentTexts.Add("In scientific and technical writing, the prevailing style is to write out numbers less than ten. Although the main concern should be expressing numbers consistently.");
             commentTexts.Add("“a lot of” is too informal.");
             commentTexts.Add("This is the British spelling.");

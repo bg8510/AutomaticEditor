@@ -14,7 +14,7 @@ namespace AutomaticEditor
             commentTexts.Add(" --------------------------------------------------------");
             commentTexts.Add("Use the indefinite article “a” when referring to a single, nonspecific object that begins with a consonant.");
             commentTexts.Add("Use the indefinite article “an” when referring to a single, nonspecific object if the next word begins with a vowel sound.​");
-            commentTexts.Add("Use the definite article “the” when referring to a specific object that both the person speaking and the listener are familiar with.");
+            commentTexts.Add("Use the definite article “the” when referring to a specific object that the reader can identify.");
             commentTexts.Add("The first time you reference something use an indefinite article, then use a definite article when you repeat that object. (Because once it has been introduced, it is then known to the reader.)");
             commentTexts.Add("Do not use an article with countries, states, counties or provinces, lakes and mountains, except when the country is a collection of states such as “the” United Kingdom.");
             commentTexts.Add("Use an article with bodies of water, oceans, and seas");
