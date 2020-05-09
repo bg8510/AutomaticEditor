@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace GrammarBotClient
@@ -30,6 +32,7 @@ namespace GrammarBotClient
                 result.Message = "Check Successfully";
             }
             return result;
+        
         }
 
         private bool Validation(string words, Result result)

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.Office.Tools.Ribbon;
-using Microsoft.Office.Tools;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 
@@ -96,7 +94,12 @@ namespace AutomaticEditor
 
         private void checkBoxSidePanel_Click(object sender, RibbonControlEventArgs e)
         {
-            Globals.ThisAddIn.customPanel.Visible = this.checkBoxSidePanel.Checked;
+            Globals.ThisAddIn.customPanel.Visible = checkBoxSidePanel.Checked;
+        }
+
+        private void checkBoxCommonPhrases_Click(object sender, RibbonControlEventArgs e)
+        {
+            Globals.ThisAddIn.commonPhrasePanel.Visible = checkBoxCommonPhrases.Checked;
         }
     }
 }

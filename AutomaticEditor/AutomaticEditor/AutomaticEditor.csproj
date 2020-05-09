@@ -166,6 +166,12 @@
   <ItemGroup>
     <Compile Include="ApiConfig.cs" />
     <Compile Include="ArticleStringHandler.cs" />
+    <Compile Include="CommonPhrases.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommonPhrases.Designer.cs">
+      <DependentUpon>CommonPhrases.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmOptions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +183,11 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="CommonPhrases.resx">
+      <DependentUpon>CommonPhrases.cs</DependentUpon>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommonPhrases1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmOptions.resx">
       <DependentUpon>frmOptions.cs</DependentUpon>
     </EmbeddedResource>

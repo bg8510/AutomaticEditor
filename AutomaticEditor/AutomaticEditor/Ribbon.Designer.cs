@@ -60,6 +60,7 @@ namespace AutomaticEditor
             this.dropDownArticles = this.Factory.CreateRibbonDropDown();
             this.group4 = this.Factory.CreateRibbonGroup();
             this.checkBoxSidePanel = this.Factory.CreateRibbonCheckBox();
+            this.checkBoxCommonPhrases = this.Factory.CreateRibbonCheckBox();
             this.button1 = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.TextGroup.SuspendLayout();
@@ -200,6 +201,7 @@ namespace AutomaticEditor
             // group4
             // 
             this.group4.Items.Add(this.checkBoxSidePanel);
+            this.group4.Items.Add(this.checkBoxCommonPhrases);
             this.group4.Label = "Cactus Side Panel";
             this.group4.Name = "group4";
             // 
@@ -210,6 +212,12 @@ namespace AutomaticEditor
             this.checkBoxSidePanel.Name = "checkBoxSidePanel";
             this.checkBoxSidePanel.ScreenTip = "Click to turn the side panel off and on.";
             this.checkBoxSidePanel.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.checkBoxSidePanel_Click);
+            // 
+            // checkBoxCommonPhrases
+            // 
+            this.checkBoxCommonPhrases.Label = "Toggle Common Phrases Panel";
+            this.checkBoxCommonPhrases.Name = "checkBoxCommonPhrases";
+            this.checkBoxCommonPhrases.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.checkBoxCommonPhrases_Click);
             // 
             // button1
             // 
@@ -294,6 +302,7 @@ namespace AutomaticEditor
         internal Microsoft.Office.Tools.Ribbon.RibbonDropDown dropDownArticles;
         internal RibbonGroup group4;
         internal RibbonCheckBox checkBoxSidePanel;
+        internal RibbonCheckBox checkBoxCommonPhrases;
     }
 
     partial class ThisRibbonCollection

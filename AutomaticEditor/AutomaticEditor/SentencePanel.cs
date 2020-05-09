@@ -1,11 +1,11 @@
 ﻿using GrammarBotClient;
 using Microsoft.Office.Interop.Word;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
+using Office = Microsoft.Office.Core;
 
 namespace AutomaticEditor
 {
@@ -13,6 +13,7 @@ namespace AutomaticEditor
     {
         public delegate void ErrorResolved();
         public static Document currentDocument;
+        public int offsetAdjustment = 0;
 
         public struct Error
         {
@@ -20,6 +21,7 @@ namespace AutomaticEditor
             public Range paraRange;
             public int fullOffset;
 
+            // This is to use with the List<>.sort method
             public int Compare(Error a, Error b) 
             {
                 if (a.fullOffset > b.fullOffset) return 1;
@@ -31,7 +33,7 @@ namespace AutomaticEditor
         private List<Error> errorL = new List<Error>();                            // errorL is a List<> of all the Error structs for the currentDocument to be sorted into a queue
         private Queue<Error> errorQ = new Queue<Error>();                          // errorQ is a Queue<> of all the Error structs for the currentDocument
 
-        private int sentenceOffset, charCount;  // fullOffset;
+        private int sentenceOffset, charCount;
         private string editedSentence;
         private Range errorRange;
 
@@ -52,12 +54,13 @@ namespace AutomaticEditor
         private void ApplyEdit_Click(object sender, EventArgs e)
         {
             string errString = nextMatch.match.replacements[0].Value;
-            errorRange = currentDocument.Range(nextMatch.fullOffset, nextMatch.fullOffset + charCount);
+            errorRange = currentDocument.Range(nextMatch.fullOffset + offsetAdjustment, nextMatch.fullOffset + offsetAdjustment + charCount);
 
             errorRange.Text = errString;
+            //errorRange.MoveStart(WdUnits.wdCharacter, charCount);
+            offsetAdjustment += errString.Length;
 
-            GetNextError();
-
+            GetNextError(charCount);
         }
         
     #region Setters and Getters
@@ -98,11 +101,12 @@ namespace AutomaticEditor
             // Create a Queue<Error> from the sorted List<Error>
             for (int i = 0; i < errorL.Count; i++)
             {
-                errorQ.Enqueue(errorL[i]);
+                errorQ.Enqueue(errorL[i]);  
             }
 
+            Console.Read();
+
             // Get the first error
-            
             GetNextError();
 
             StartEdit.Enabled = false;
@@ -111,7 +115,7 @@ namespace AutomaticEditor
             ApplyEdit.Enabled = true;
         }
 
-        private Error GetNextError()
+        private void GetNextError(int applyEditOffset = 0)
         {
             if (errorQ.Count > 0)
             {
@@ -119,16 +123,21 @@ namespace AutomaticEditor
             }
             else  // It's finished with all the errors in the queue, so start spellchecker and grammar checker
             {
-                this.Visible = false;
-                object optional = Missing.Value;
-                currentDocument.CheckSpelling(ref optional, true, true, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional);
-                currentDocument.CheckGrammar();
+                SetOriginalSentence("");
+                SetEditedSentence("");
+
+                Spelldoink();
+                return;
             }
             
             try
             {
                 if (errorQ.Count > 0) SetErrorMessage(nextMatch.match.Message.ToString());
-                else if (errorQ.Count == 0) SetErrorMessage(nextMatch.match.Message.ToString() + "\n \n \n LAST ERROR");
+                else if (errorQ.Count == 0)
+                {
+                    ErrorMessage.ForeColor = Color.Black;
+                    SetErrorMessage(nextMatch.match.Message.ToString() + "\n \n \n LAST ERROR");
+                }
 
                 sentenceOffset = (int)nextMatch.match.offset;
                 //fullOffset = nextMatch.paraRange.Start + sentenceOffset;
@@ -137,25 +146,26 @@ namespace AutomaticEditor
                 //editedSentence = editedSentence.Insert(sentenceOffset, nextMatch.match.replacements[0].Value);
                 
                 SetOriginalSentence(nextMatch.match.Sentence.Substring(sentenceOffset, charCount));
-                editedSentence = nextMatch.match.replacements[0].Value;
+                editedSentence = nextMatch.match.replacements[0].Value ?? "no suggestion";      // null-coalescing operator in case of no Value
+                if (GetEditedSentence().Trim() == GetOriginalSentence().Trim()) editedSentence = "N/A";
+                
                 SetEditedSentence(editedSentence);
 
                 // Select the error in the main text
-                currentDocument.Range(nextMatch.fullOffset, nextMatch.fullOffset + charCount).Select();         
+                currentDocument.Range(nextMatch.fullOffset + offsetAdjustment, nextMatch.fullOffset + offsetAdjustment + charCount).Select();
             }
             catch (Exception EX)
             {
                 //MessageBox.Show(EX.ToString());
             }
 
-            return nextMatch;
+            return;
         }
 
-        #region GrammarBot
+    #region GrammarBot
 
         public void RunGrammarbot()
         {
-            //foreach (Paragraph para in currentDocument.Paragraphs)
             for (int p = 1; p <= currentDocument.Paragraphs.Count; p++)
             {
                 for (int s = 1; s <= currentDocument.Paragraphs[p].Range.Sentences.Count; s++)
@@ -178,9 +188,6 @@ namespace AutomaticEditor
         private async void CheckAsync(Range currentRange, Range paraRange)
         {
             GrammarBotClient.GrammarBot grammarBot = new GrammarBotClient.GrammarBot(new GrammarBotClient.ApiConfig());
-            //string editedSentence;
-            //int offset, charCount;
-            //GrammarBotClient.Matches error;
             Error currentError;
             currentError.paraRange = paraRange;
 
@@ -194,7 +201,7 @@ namespace AutomaticEditor
                     {
                         for (int i = 0; i < grammar.CheckContent.Matches.Count; i++)
                         {
-                            // Each "currentError" describes one error in a sentence
+                            // Each "currentError" struct describes one error in a sentence
                             currentError.match = grammar.CheckContent.Matches[i];
                             currentError.fullOffset = paraRange.Start + (int)grammar.CheckContent.Matches[i].offset;
 
@@ -203,40 +210,15 @@ namespace AutomaticEditor
 
                             // Add the current error to the error queue
                             errorL.Add(currentError); 
-
-                            //sentences.SetErrorMessage(error.Message.ToString());
-                            //sentences.SetOriginalSentence(error.Sentence.ToString());
-
-                            //offset = (int)error.offset;
-                            //charCount = (int)error.Length;
-                            //editedSentence = error.Sentence.Remove(offset, charCount);
-                            //editedSentence = editedSentence.Insert(offset, error.replacements[0].Value.ToString());
-                            //sentences.SetOriginalSentence(editedSentence);
-
-                            //rngStart = currentRange.Sentences[numSentence].Start + item.offset;
-                            //rngEnd = rngStart + item.Length;
-
-                            //rng = currentDocument.Range(rngStart, rngEnd);
-                            //rng.HighlightColorIndex = WdColorIndex.wdDarkYellow;
-
-                            // If there are any suggested replacements, show the first one in a Comment
-                            //if (item.replacements.Count > 0)
-                            //{
-                            //    // Add highlight and comment
-                            //    currentDocument.Comments.Add(rng, item.replacements[0].Value.ToString() + "\nrng.Start: " + rng.Start.ToString() + "\nerror: " + item.Message);
-
-                            //    // Replace an error with its suggested correction
-                            //    ReplaceText(rng, item.replacements[0].Value.ToString());
-                            //}
                         }
                     }
                     catch (Exception EX)
                     {
-                        MessageBox.Show(EX.ToString());
+                        //MessageBox.Show(EX.ToString());
 
                         // Add an error comment
-                        Range errRng = currentDocument.Range(0, 1);
-                        currentDocument.Comments.Add(errRng, "EXCEPTION! \n\n" + EX.ToString());
+                        //Range errRng = currentDocument.Range(0, 1);
+                        //currentDocument.Comments.Add(errRng, "EXCEPTION! \n\n" + EX.ToString());
                     }
                 }
                 else
@@ -246,7 +228,7 @@ namespace AutomaticEditor
             }
             catch (Exception EX)
             {
-                MessageBox.Show(EX.ToString());
+                //MessageBox.Show(EX.ToString());
 
                 // Add an error comment
                 //Range errRng = currentDocument.Range(0, 1);
@@ -303,6 +285,17 @@ namespace AutomaticEditor
             localCurrentRange.InsertAfter(replacement);
 
             return;
+        }
+
+    #endregion
+        
+        #region Spell Check
+
+        private void Spelldoink()
+        {
+            object optional = Missing.Value;
+            currentDocument.CheckSpelling(ref optional, true, true, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional);
+            currentDocument.CheckGrammar();
         }
 
         #endregion

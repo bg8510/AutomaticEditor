@@ -2,11 +2,8 @@
 using System;
 using System.Text.RegularExpressions;
 using System.Reflection;
-using System.Windows.Forms;
 using Office = Microsoft.Office.Core;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Task = System.Threading.Tasks.Task;
+using Microsoft.Office.Tools;
 
 namespace AutomaticEditor
 {
@@ -15,14 +12,9 @@ namespace AutomaticEditor
         public static readonly Document currentDocument = Globals.ThisAddIn.Application.ActiveDocument;
 
         public static SentencePanel sentences;
-        public Microsoft.Office.Tools.CustomTaskPane sentencePanel;
-
-        // this is a list of th eunicode values for sub- and superscript characters
-        //List<int> SubscriptOrSuperscript = new List<int>(){688, 689, 690, 691, 692, 693, 694, 695, 696, 890, 1388, 7468, 7469, 7470, 7471, 7472, 7473, 7474, 7475, 7476, 7477, 7478,
-        //                                                7479, 7480, 7481, 7482, 7483, 7484, 7485, 7486, 7487, 7488, 7489, 7490, 7491, 7492, 7493, 7494, 7495, 7496, 7497, 7498, 7499,
-        //                                                7500, 7501, 7502, 7503, 7504, 7505, 7506, 7507, 7508, 7509, 7510, 7511, 7512, 7513, 7514, 7515, 7516, 7517, 7518, 7519, 7520,
-        //                                                7521, 7522, 7523, 7524, 7525, 7526, 7527, 7528, 7529, 7530, 8305, 8319, 8336, 8337, 8338, 8339, 8340, 8341, 8342, 8343, 8344,
-        //                                                8345, 8346, 8347, 8348};
+        public CustomTaskPane sentencePanel;
+        public static CommonPhrases commonPhrases;
+        public CustomTaskPane commonPhrasePanel;
 
         // Choose the current Selection
         // Range range = Globals.ThisAddIn.Application.Selection.Range;
@@ -38,6 +30,11 @@ namespace AutomaticEditor
             sentencePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight;
             DisactivateSentencePanel();
 
+            commonPhrases = new CommonPhrases(currentDocument);
+            commonPhrasePanel = Globals.ThisAddIn.CustomTaskPanes.Add(commonPhrases, "Common Comments");
+            commonPhrasePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
+            ActivateCommonPhrasesPanel();
+
             // Activate track changes
             currentDocument.TrackRevisions = true;
             RevisionsFilter wrdRevisionsFilter = currentDocument.ActiveWindow.View.RevisionsFilter;
@@ -47,7 +44,7 @@ namespace AutomaticEditor
             if (isAmericanStyle) Globals.ThisAddIn.Application.Selection.Range.LanguageID = WdLanguageID.wdEnglishUS;
             else Globals.ThisAddIn.Application.Selection.Range.LanguageID = WdLanguageID.wdEnglishUK;
 
-            //goto SkipStringReplacer;
+        goto SkipStringReplacer;
 
             // Call the stringReplacer method for each string that should be changed. Capture the result when necessary and use it to indicate whether the comment has already been made for that issue.
             StringReplacer("What's more", "Also", "“What's more” is too informal for academic writing.");
@@ -126,8 +123,13 @@ SkipStringReplacer:
 
             Globals.ThisAddIn.DisactivateCustomPanel();
 
-            // Make visible the top panel
+            // Make visible the side panels
             ActivateSentencePanel();
+            ActivateCommonPhrasesPanel();
+
+            //object optional = Missing.Value;
+            //currentDocument.CheckSpelling(ref optional, true, true, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional);
+            //currentDocument.CheckGrammar();
 
             //RunGrammarbot(currentDocument);
 
@@ -271,17 +273,6 @@ SkipStringReplacer:
 
     #endregion
 
-    #region Spell Check
-
-        private void Spelldoink()
-        {
-            object optional = Missing.Value;
-            currentDocument.CheckSpelling(ref optional, true, true, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional);
-            currentDocument.CheckGrammar();
-        }
-
-        #endregion
-
         public void ActivateSentencePanel()
         {
             sentencePanel.Visible = true;
@@ -290,6 +281,16 @@ SkipStringReplacer:
         public void DisactivateSentencePanel()
         {
             sentencePanel.Visible = false;
+        }
+
+        public void ActivateCommonPhrasesPanel()
+        {
+            commonPhrasePanel.Visible = true;
+        }
+
+        public void DisactivateCommonPhrasesPanel()
+        {
+            commonPhrasePanel.Visible = false;
         }
     }
 }

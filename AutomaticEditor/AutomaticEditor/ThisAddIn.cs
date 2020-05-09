@@ -8,26 +8,25 @@ using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Word;
 using Microsoft.Office.Interop.Word;
 using Document = Microsoft.Office.Interop.Word.Document;
+using Microsoft.Office.Tools;
 
 namespace AutomaticEditor
 {
     public partial class ThisAddIn
     {
         public static SidePanel sidePanel;
-        //public static SentencePanel sentences;
-        public Microsoft.Office.Tools.CustomTaskPane customPanel;
-        //public static Microsoft.Office.Tools.CustomTaskPane sentencePanel;
+        public static CommonPhrases commonPhrases;
+        public CustomTaskPane customPanel;
+        public CustomTaskPane commonPhrasePanel;
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             sidePanel = new SidePanel();
-            customPanel = this.CustomTaskPanes.Add(sidePanel, "Grammarlin Editor");
+            customPanel = CustomTaskPanes.Add(sidePanel, "Grammarlin");
             customPanel.Visible = true;
-
-            //sentences = new SentencePanel();
-            //sentencePanel = this.CustomTaskPanes.Add(sentences, "Grammarlin");
-            //sentencePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionTop;
-            //DisactivateSentencePanel();
+            //commonPhrases = new CommonPhrases();
+            //commonPhrasePanel = CustomTaskPanes.Add(commonPhrases, "Common Comments");
+            //commonPhrasePanel.Visible = true;
         }
 
         public void ActivateCustomPanel()
