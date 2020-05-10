@@ -41,7 +41,7 @@
             this.OriginalSentence.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.OriginalSentence.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OriginalSentence.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.OriginalSentence.Location = new System.Drawing.Point(10, 274);
+            this.OriginalSentence.Location = new System.Drawing.Point(8, 274);
             this.OriginalSentence.Multiline = true;
             this.OriginalSentence.Name = "OriginalSentence";
             this.OriginalSentence.Size = new System.Drawing.Size(190, 44);
@@ -54,7 +54,7 @@
             this.EditedSentence.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.EditedSentence.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditedSentence.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.EditedSentence.Location = new System.Drawing.Point(10, 324);
+            this.EditedSentence.Location = new System.Drawing.Point(8, 324);
             this.EditedSentence.Multiline = true;
             this.EditedSentence.Name = "EditedSentence";
             this.EditedSentence.Size = new System.Drawing.Size(190, 44);
@@ -64,10 +64,11 @@
             // RejectEdit
             // 
             this.RejectEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.RejectEdit.BackColor = System.Drawing.Color.Tomato;
+            this.RejectEdit.BackColor = System.Drawing.Color.Salmon;
             this.RejectEdit.Enabled = false;
+            this.RejectEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RejectEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.RejectEdit.Location = new System.Drawing.Point(33, 471);
+            this.RejectEdit.Location = new System.Drawing.Point(31, 471);
             this.RejectEdit.Name = "RejectEdit";
             this.RejectEdit.Size = new System.Drawing.Size(145, 36);
             this.RejectEdit.TabIndex = 2;
@@ -78,10 +79,11 @@
             // ApplyEdit
             // 
             this.ApplyEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ApplyEdit.BackColor = System.Drawing.Color.GreenYellow;
+            this.ApplyEdit.BackColor = System.Drawing.Color.LightGreen;
             this.ApplyEdit.Enabled = false;
+            this.ApplyEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ApplyEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApplyEdit.Location = new System.Drawing.Point(47, 406);
+            this.ApplyEdit.Location = new System.Drawing.Point(45, 406);
             this.ApplyEdit.Name = "ApplyEdit";
             this.ApplyEdit.Size = new System.Drawing.Size(116, 33);
             this.ApplyEdit.TabIndex = 3;
@@ -92,26 +94,28 @@
             // ErrorMessage
             // 
             this.ErrorMessage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ErrorMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(187)))));
+            this.ErrorMessage.BackColor = System.Drawing.Color.Silver;
             this.ErrorMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ErrorMessage.ForeColor = System.Drawing.Color.Red;
+            this.ErrorMessage.ForeColor = System.Drawing.Color.Firebrick;
             this.ErrorMessage.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.ErrorMessage.Location = new System.Drawing.Point(10, 52);
+            this.ErrorMessage.Location = new System.Drawing.Point(8, 52);
             this.ErrorMessage.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
             this.ErrorMessage.Multiline = true;
             this.ErrorMessage.Name = "ErrorMessage";
             this.ErrorMessage.Size = new System.Drawing.Size(190, 207);
             this.ErrorMessage.TabIndex = 4;
+            this.ErrorMessage.Text = "TEST TEST";
             this.ErrorMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // StartEdit
             // 
             this.StartEdit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.StartEdit.BackColor = System.Drawing.Color.GreenYellow;
+            this.StartEdit.BackColor = System.Drawing.Color.LightGreen;
             this.StartEdit.Enabled = false;
+            this.StartEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.StartEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartEdit.Location = new System.Drawing.Point(58, 142);
+            this.StartEdit.Location = new System.Drawing.Point(56, 142);
             this.StartEdit.Name = "StartEdit";
             this.StartEdit.Size = new System.Drawing.Size(95, 32);
             this.StartEdit.TabIndex = 5;
@@ -123,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.BackColor = System.Drawing.Color.SlateGray;
             this.Controls.Add(this.StartEdit);
             this.Controls.Add(this.ErrorMessage);
             this.Controls.Add(this.ApplyEdit);

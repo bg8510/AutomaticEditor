@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 
@@ -16,22 +17,25 @@ namespace AutomaticEditor
 
         private void ApplyComment(string commentWords, ToolStripComboBox selectedCB, int index)
         {
-            // Apply the "Cancel" option by not doing anything here
-            if (commentWords == "Ω Cancel") return;
-
             // Add the selected comment at the currently selected range
             Comment comment = Globals.ThisAddIn.Application.ActiveDocument.Comments.Add(Globals.ThisAddIn.Application.Selection.Range, commentWords);
             comment.Range.Font.Name = "Calibri";
 
-            // Remove the selected option so I can't use it twice
-            selectedCB.Items.Remove(selectedCB.Items[index]);
+            if (selectedCB != repeatableCommentsCB)
+            {
+                // Remove the selected option so I can't use it twice
+                selectedCB.Items.Remove(selectedCB.Items[index]);
+            }
+            else
+            {
+                repeatableCommentsCB.Text = "";
+            }
         }
 
         private void abbreviationsCB_Pick(object sender, EventArgs e)
         {
             string selectedComment = abbreviationsCB.SelectedItem.ToString();
             int index = abbreviationsCB.SelectedIndex;
-            abbreviationsCB.Text = "Abbreviations";
             ApplyComment(selectedComment, abbreviationsCB, index);
 
             return;
@@ -41,7 +45,6 @@ namespace AutomaticEditor
         {
             string selectedComment = contractionsCB.SelectedItem.ToString();
             int index = contractionsCB.SelectedIndex;
-            contractionsCB.Text = "Contractions";
             ApplyComment(selectedComment, contractionsCB, index);
             
             return;
@@ -51,7 +54,6 @@ namespace AutomaticEditor
         {
             string selectedComment = formalityCB.SelectedItem.ToString();
             int index = formalityCB.SelectedIndex;
-            formalityCB.Text = "Formality";
             ApplyComment(selectedComment, formalityCB, index);
 
             return;
@@ -61,9 +63,63 @@ namespace AutomaticEditor
         {
             string selectedComment = sentencesCB.SelectedItem.ToString();
             int index = sentencesCB.SelectedIndex;
-            sentencesCB.Text = "Sentences";
             ApplyComment(selectedComment, sentencesCB, index);
 
+            return;
+        }
+
+        private void articlesCB_Pick(object sender, EventArgs e)
+        {
+            string selectedComment = articlesCB.SelectedItem.ToString();
+            int index = articlesCB.SelectedIndex;
+            ApplyComment(selectedComment, articlesCB, index);
+
+            return;
+        }
+
+        private void betterWordsCB_Pick(object sender, EventArgs e)
+        {
+            string selectedComment = betterWordsCB.SelectedItem.ToString();
+            int index = betterWordsCB.SelectedIndex;
+            ApplyComment(selectedComment, betterWordsCB, index);
+
+            return;
+        }
+
+        private void repeatableCommentsCB_Pick(object sender, EventArgs e)
+        {
+            string selectedComment = repeatableCommentsCB.SelectedItem.ToString();
+            int index = repeatableCommentsCB.SelectedIndex;
+            ApplyComment(selectedComment, repeatableCommentsCB, index);
+
+            return;
+        }
+
+        private void wordinessCB_Pick(object sender, EventArgs e)
+        {
+            string selectedComment = wordinessCB.SelectedItem.ToString();
+            int index = wordinessCB.SelectedIndex;
+            ApplyComment(selectedComment, wordinessCB, index);
+
+            return;
+        }
+
+        private void commentsToggleButton_Click(object sender, EventArgs e)
+        {
+            switch (commentsToggleButton.Text)
+            {
+                case "Switch to LFTE Comments":
+                    menuStripLFTE.Visible = true;
+                    menuStripRegular.Visible = false;
+                    commentsToggleButton.Text = "Switch to Regular Comments";
+                    break;
+
+                case "Switch to Regular Comments":
+                    menuStripRegular.Visible = true;
+                    menuStripLFTE.Visible = false;
+                    commentsToggleButton.Text = "Switch to LFTE Comments";
+                    break;
+            }
             return;
         }
     }
