@@ -287,8 +287,8 @@ namespace AutomaticEditor
             return;
         }
 
-    #endregion
-        
+        #endregion
+
         #region Spell Check
 
         private void Spelldoink()

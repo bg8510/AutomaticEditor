@@ -21,19 +21,20 @@ namespace AutomaticEditor
 
         #region Start Editing method
 
-        public void StartEditing(String introText, bool isAmericanStyle = true)
+        public void StartEditing(String introText, object sender = null, bool isAmericanStyle = true)
         {
             bool result;
 
             sentences = new SentencePanel(currentDocument);
             sentencePanel = Globals.ThisAddIn.CustomTaskPanes.Add(sentences, "Grammatlin");
             sentencePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight;
-            DisactivateSentencePanel();
 
             commonPhrases = new CommonPhrases(currentDocument);
             commonPhrasePanel = Globals.ThisAddIn.CustomTaskPanes.Add(commonPhrases, "Common Comments");
             commonPhrasePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
             ActivateCommonPhrasesPanel();
+
+            DisactivateSentencePanel();
 
             // Activate track changes
             currentDocument.TrackRevisions = true;
@@ -44,71 +45,70 @@ namespace AutomaticEditor
             if (isAmericanStyle) Globals.ThisAddIn.Application.Selection.Range.LanguageID = WdLanguageID.wdEnglishUS;
             else Globals.ThisAddIn.Application.Selection.Range.LanguageID = WdLanguageID.wdEnglishUK;
 
-        goto SkipStringReplacer;
+            if (sender == null)
+            {
+                // Call the stringReplacer method for each string that should be changed. Capture the result when necessary and use it to indicate whether the comment has already been made for that issue.
+                StringReplacer("What's more", "Also", "“What's more” is too informal for academic writing.");
 
-            // Call the stringReplacer method for each string that should be changed. Capture the result when necessary and use it to indicate whether the comment has already been made for that issue.
-            StringReplacer("What's more", "Also", "“What's more” is too informal for academic writing.");
-            
-            result = StringReplacer("And ", "", "Avoid using short coordinating conjunctions like “and” and “but” at the beginning of a sentence.");
-            result = StringReplacer("But ", "", "Avoid using short coordinating conjunctions like “and” and “but” at the beginning of a sentence.", commentHasBeenMade: result);
-            result = StringReplacer("So ", "", "Avoid using short coordinating conjunctions like “and” and “so” at the beginning of a sentence.", commentHasBeenMade: result);
-            StringReplacer("Or ", "", "Avoid using short coordinating conjunctions like “but” and “or” at the beginning of a sentence.", commentHasBeenMade: result);
+                result = StringReplacer("And ", "", "Avoid using short coordinating conjunctions like “and” and “but” at the beginning of a sentence.");
+                result = StringReplacer("But ", "", "Avoid using short coordinating conjunctions like “and” and “but” at the beginning of a sentence.", commentHasBeenMade: result);
+                result = StringReplacer("So ", "", "Avoid using short coordinating conjunctions like “and” and “so” at the beginning of a sentence.", commentHasBeenMade: result);
+                StringReplacer("Or ", "", "Avoid using short coordinating conjunctions like “but” and “or” at the beginning of a sentence.", commentHasBeenMade: result);
 
-            result = StringReplacer("can't", "cannot", "Avoid using contractions like “can’t” in academic writing.");
-            result = StringReplacer("don't", "do not", "Avoid using contractions like “don’t” in academic writing.", commentHasBeenMade: result);
-            result = StringReplacer("doesn't", "does not", "Avoid using contractions like “doesn’t” in academic writing.", commentHasBeenMade: result);
-            result = StringReplacer("didn't", "did not", "Avoid using contractions like “didn’t” in academic writing.", commentHasBeenMade: result);
-            StringReplacer("won't", "will not", "Avoid using contractions like “won’t” in academic writing.", commentHasBeenMade: result);
+                result = StringReplacer("can't", "cannot", "Avoid using contractions like “can’t” in academic writing.");
+                result = StringReplacer("don't", "do not", "Avoid using contractions like “don’t” in academic writing.", commentHasBeenMade: result);
+                result = StringReplacer("doesn't", "does not", "Avoid using contractions like “doesn’t” in academic writing.", commentHasBeenMade: result);
+                result = StringReplacer("didn't", "did not", "Avoid using contractions like “didn’t” in academic writing.", commentHasBeenMade: result);
+                StringReplacer("won't", "will not", "Avoid using contractions like “won’t” in academic writing.", commentHasBeenMade: result);
 
-            result = StringReplacer("utilize", "use", "“Use” is almost always a better word choice than “utilize.”");
-            result = StringReplacer("utilizing", "using", "“Using” is almost always a better word choice than “utilizing.”", true, commentHasBeenMade: result);
-            StringReplacer("Utilizing", "Using", "“Using” is almost always a better word choice than “utilizing.”", true, commentHasBeenMade: result);   
+                result = StringReplacer("utilize", "use", "“Use” is almost always a better word choice than “utilize.”");
+                result = StringReplacer("utilizing", "using", "“Using” is almost always a better word choice than “utilizing.”", true, commentHasBeenMade: result);
+                StringReplacer("Utilizing", "Using", "“Using” is almost always a better word choice than “utilizing.”", true, commentHasBeenMade: result);
 
-            // This section is for American grammar and spelling
-            if (isAmericanStyle) result = StringReplacer("\", ", ",\" ", "In formal American English, periods and commas go inside the quotes, even if they were not part of the thing being quoted.");
-            if (isAmericanStyle) result = StringReplacer("\". ", ".\" ", "In formal American English, periods and commas go inside the quotes, even if they were not part of the thing being quoted.", commentHasBeenMade: result);
-            if (isAmericanStyle) result = StringReplacer("', ", ",' ", "In formal American English, periods and commas go inside the quotes, even if they were not part of the thing being quoted.", commentHasBeenMade: result);
-            if (isAmericanStyle) StringReplacer("'. ", ".' ", "In formal American English, periods and commas go inside the quotes, even if they were not part of the thing being quoted.", commentHasBeenMade: result);
-            
-            result = StringReplacer("Since", "Because", "In technical writing, the word “since” is reserved for time-related references. To indicate causality, replace “since” with synonyms such as “because.”");
-            StringReplacer("since", "because", "In technical writing, the word “since” is reserved for time-related references. To indicate causality, replace “since” with synonyms such as “because.”", commentHasBeenMade: result);
+                // This section is for American grammar and spelling
+                if (isAmericanStyle) result = StringReplacer("\", ", ",\" ", "In formal American English, periods and commas go inside the quotes, even if they were not part of the thing being quoted.");
+                if (isAmericanStyle) result = StringReplacer("\". ", ".\" ", "In formal American English, periods and commas go inside the quotes, even if they were not part of the thing being quoted.", commentHasBeenMade: result);
+                if (isAmericanStyle) result = StringReplacer("', ", ",' ", "In formal American English, periods and commas go inside the quotes, even if they were not part of the thing being quoted.", commentHasBeenMade: result);
+                if (isAmericanStyle) StringReplacer("'. ", ".' ", "In formal American English, periods and commas go inside the quotes, even if they were not part of the thing being quoted.", commentHasBeenMade: result);
 
-            result = StringReplacer("In order to", "To", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.");
-            result = StringReplacer("in order to", "to", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", commentHasBeenMade: result);
-            result = StringReplacer("it is worth noting that ", "", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", false, commentHasBeenMade: result);
-            result = StringReplacer("it should be mentioned that ", "", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", false, commentHasBeenMade: result);
-            result = StringReplacer("All of", "All", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", true, commentHasBeenMade: result);
-            StringReplacer("all of", "all", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", true);
+                result = StringReplacer("Since", "Because", "In technical writing, the word “since” is reserved for time-related references. To indicate causality, replace “since” with synonyms such as “because.”");
+                StringReplacer("since", "because", "In technical writing, the word “since” is reserved for time-related references. To indicate causality, replace “since” with synonyms such as “because.”", commentHasBeenMade: result);
+
+                result = StringReplacer("In order to", "To", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.");
+                result = StringReplacer("in order to", "to", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", commentHasBeenMade: result);
+                result = StringReplacer("it is worth noting that ", "", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", false, commentHasBeenMade: result);
+                result = StringReplacer("it should be mentioned that ", "", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", false, commentHasBeenMade: result);
+                result = StringReplacer("All of", "All", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", true, commentHasBeenMade: result);
+                StringReplacer("all of", "all", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", true);
 
 
-            result = StringReplacer("Nowadays", "Currently", "“Nowadays” is too informal for academic writing.", true);
-            StringReplacer("nowadays", "currently", "“Nowadays” is too informal for academic writing.", true, commentHasBeenMade: result);
+                result = StringReplacer("Nowadays", "Currently", "“Nowadays” is too informal for academic writing.", true);
+                StringReplacer("nowadays", "currently", "“Nowadays” is too informal for academic writing.", true, commentHasBeenMade: result);
 
-            result = StringReplacer("more and more", "increasingly", "“more and more” is too informal for academic writing.", true);
-            StringReplacer("More and more", "Increasingly", "“more and more” is too informal for academic writing.", true, commentHasBeenMade: result);
+                result = StringReplacer("more and more", "increasingly", "“more and more” is too informal for academic writing.", true);
+                StringReplacer("More and more", "Increasingly", "“more and more” is too informal for academic writing.", true, commentHasBeenMade: result);
 
-            StringReplacer("huge", "large", "“Huge” is too informal for academic writing.", false);
-            
-            StringReplacer("Compared to", "Unlike", "Edited for redundancy/wordiness.", true);
-            
-            StringReplacer("At first", "First", "Edited for redundancy/wordiness.", true);
+                StringReplacer("huge", "large", "“Huge” is too informal for academic writing.", false);
 
-            StringReplacer("et al. find", "et al. found", "Refer to other studies in the past tense.");
+                StringReplacer("Compared to", "Unlike", "Edited for redundancy/wordiness.", true);
 
-            StringReplacer("et al ", "et al. ", "“al” is an abbreviation and requires a period.");
+                StringReplacer("At first", "First", "Edited for redundancy/wordiness.", true);
 
-            StringReplacer("i.e. ", "i.e., ", "“i.e.” requires a comma; it is the same as saying “for example,” and then listing items.", true);
+                StringReplacer("et al. find", "et al. found", "Refer to other studies in the past tense.");
 
-            StringReplacer("by using", "using", "Removed an unnecessary word.", false);
+                StringReplacer("et al ", "et al. ", "“al” is an abbreviation and requires a period.");
 
-            StringReplacer("indexes", "indices", "“indices” is the correct form and should be used in formal writing, although “indexes” is acceptable in other contexts.", false);
+                StringReplacer("i.e. ", "i.e., ", "“i.e.” requires a comma; it is the same as saying “for example,” and then listing items.", true);
 
-            StringReplacer("is able to", "can", "“is able to” is too wordy", false);
+                StringReplacer("by using", "using", "Removed an unnecessary word.", false);
 
-            result = StringReplacer("researches", "studies", "The plural form “researches” is very rarely used. “Studies” is better.", true);
-            StringReplacer("Researches", "Studies", "The plural form “researches” is very rarely used. “Studies” is better.", true, commentHasBeenMade: result);
+                StringReplacer("indexes", "indices", "“indices” is the correct form and should be used in formal writing, although “indexes” is acceptable in other contexts.", false);
 
-SkipStringReplacer:
+                StringReplacer("is able to", "can", "“is able to” is too wordy", false);
+
+                result = StringReplacer("researches", "studies", "The plural form “researches” is very rarely used. “Studies” is better.", true);
+                StringReplacer("Researches", "Studies", "The plural form “researches” is very rarely used. “Studies” is better.", true, commentHasBeenMade: result);
+            }
 
             //StringHighlighter("paper");
 

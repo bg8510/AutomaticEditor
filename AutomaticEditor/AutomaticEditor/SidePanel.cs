@@ -69,6 +69,7 @@ namespace AutomaticEditor
             this.groupBox1.Visible = false;
             this.groupBox2.Visible = false;
             this.buttonStart.Visible = false;
+            this.bypassButton.Visible = false;
 
             this.Visible = false;
             
@@ -136,9 +137,11 @@ namespace AutomaticEditor
 
         #endregion
 
-        private void mainContainer_Paint(object sender, PaintEventArgs e)
+        private void bypassButton_Click(object sender, EventArgs e)
         {
-
+            Main main = new Main();
+            main.StartEditing("blank", sender, true);
+            return;
         }
     }
 }

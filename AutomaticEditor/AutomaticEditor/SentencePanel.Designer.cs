@@ -67,7 +67,7 @@
             this.RejectEdit.BackColor = System.Drawing.Color.Salmon;
             this.RejectEdit.Enabled = false;
             this.RejectEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.RejectEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.RejectEdit.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RejectEdit.Location = new System.Drawing.Point(31, 471);
             this.RejectEdit.Name = "RejectEdit";
             this.RejectEdit.Size = new System.Drawing.Size(145, 36);
@@ -82,7 +82,7 @@
             this.ApplyEdit.BackColor = System.Drawing.Color.LightGreen;
             this.ApplyEdit.Enabled = false;
             this.ApplyEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ApplyEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApplyEdit.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ApplyEdit.Location = new System.Drawing.Point(45, 406);
             this.ApplyEdit.Name = "ApplyEdit";
             this.ApplyEdit.Size = new System.Drawing.Size(116, 33);
@@ -105,7 +105,6 @@
             this.ErrorMessage.Name = "ErrorMessage";
             this.ErrorMessage.Size = new System.Drawing.Size(190, 207);
             this.ErrorMessage.TabIndex = 4;
-            this.ErrorMessage.Text = "TEST TEST";
             this.ErrorMessage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // StartEdit

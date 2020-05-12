@@ -44,11 +44,11 @@
             this.repeatableCommentsCB = new System.Windows.Forms.ToolStripComboBox();
             this.sentencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sentencesCB = new System.Windows.Forms.ToolStripComboBox();
+            this.wordinessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordinessCB = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.commentsToggleButton = new System.Windows.Forms.Button();
             this.menuStripLFTE = new System.Windows.Forms.MenuStrip();
-            this.wordinessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wordinessCB = new System.Windows.Forms.ToolStripComboBox();
             this.menuStripRegular.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -56,9 +56,9 @@
             // 
             // menuStripRegular
             // 
+            this.menuStripRegular.AutoSize = false;
             this.menuStripRegular.BackColor = System.Drawing.Color.DimGray;
             this.menuStripRegular.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStripRegular.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStripRegular.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.articlesToolStripMenuItem,
             this.articlesCB,
@@ -77,24 +77,29 @@
             this.wordinessToolStripMenuItem,
             this.wordinessCB});
             this.menuStripRegular.Location = new System.Drawing.Point(0, 0);
-            this.menuStripRegular.MinimumSize = new System.Drawing.Size(310, 0);
+            this.menuStripRegular.MinimumSize = new System.Drawing.Size(400, 0);
             this.menuStripRegular.Name = "menuStripRegular";
             this.menuStripRegular.Padding = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.menuStripRegular.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStripRegular.ShowItemToolTips = true;
-            this.menuStripRegular.Size = new System.Drawing.Size(310, 402);
+            this.menuStripRegular.Size = new System.Drawing.Size(404, 402);
             this.menuStripRegular.TabIndex = 0;
             this.menuStripRegular.Text = "menuStrip1";
             // 
             // articlesToolStripMenuItem
             // 
+            this.articlesToolStripMenuItem.AutoSize = false;
             this.articlesToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
             this.articlesToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
             this.articlesToolStripMenuItem.Name = "articlesToolStripMenuItem";
-            this.articlesToolStripMenuItem.Size = new System.Drawing.Size(307, 19);
+            this.articlesToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.articlesToolStripMenuItem.Text = "Articles";
             // 
             // articlesCB
             // 
+            this.articlesCB.AutoSize = false;
+            this.articlesCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.articlesCB.DropDownWidth = 300;
             this.articlesCB.Items.AddRange(new object[] {
             "Use the indefinite article “a” when referring to a single, nonspecific object tha" +
                 "t begins with a consonant.",
@@ -130,24 +135,29 @@
             this.articlesCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
             this.articlesCB.MaxDropDownItems = 17;
             this.articlesCB.Name = "articlesCB";
-            this.articlesCB.Size = new System.Drawing.Size(305, 23);
+            this.articlesCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.articlesCB.Size = new System.Drawing.Size(400, 23);
             this.articlesCB.ToolTipText = "Articles";
             this.articlesCB.SelectedIndexChanged += new System.EventHandler(this.articlesCB_Pick);
             // 
             // abbreviationsToolStripMenuItem
             // 
+            this.abbreviationsToolStripMenuItem.AutoSize = false;
             this.abbreviationsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
             this.abbreviationsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
             this.abbreviationsToolStripMenuItem.Name = "abbreviationsToolStripMenuItem";
-            this.abbreviationsToolStripMenuItem.Size = new System.Drawing.Size(307, 19);
+            this.abbreviationsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.abbreviationsToolStripMenuItem.Text = "Abbreviations";
             // 
             // abbreviationsCB
             // 
+            this.abbreviationsCB.AutoSize = false;
             this.abbreviationsCB.BackColor = System.Drawing.SystemColors.Window;
+            this.abbreviationsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.abbreviationsCB.DropDownWidth = 300;
             this.abbreviationsCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.abbreviationsCB.Items.AddRange(new object[] {
+            "“al” is an abbreviation and requires a period.",
             "Define an abbreviation the first time you use it. Please make sure this is the co" +
                 "rrect definition.",
             resources.GetString("abbreviationsCB.Items"),
@@ -160,23 +170,27 @@
                 "he abstract.",
             "You do not need to define an abbreviation that you never use."});
             this.abbreviationsCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.abbreviationsCB.MaxDropDownItems = 7;
             this.abbreviationsCB.Name = "abbreviationsCB";
-            this.abbreviationsCB.Size = new System.Drawing.Size(305, 25);
+            this.abbreviationsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.abbreviationsCB.Size = new System.Drawing.Size(399, 25);
             this.abbreviationsCB.Sorted = true;
             this.abbreviationsCB.ToolTipText = "Abbreviations";
             this.abbreviationsCB.SelectedIndexChanged += new System.EventHandler(this.abbreviationsCB_Pick);
             // 
             // betterWordsToolStripMenuItem
             // 
+            this.betterWordsToolStripMenuItem.AutoSize = false;
             this.betterWordsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
             this.betterWordsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
             this.betterWordsToolStripMenuItem.Name = "betterWordsToolStripMenuItem";
-            this.betterWordsToolStripMenuItem.Size = new System.Drawing.Size(307, 19);
+            this.betterWordsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.betterWordsToolStripMenuItem.Text = "Better Words";
             // 
             // betterWordsCB
             // 
+            this.betterWordsCB.AutoSize = false;
+            this.betterWordsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.betterWordsCB.DropDownWidth = 300;
             this.betterWordsCB.Items.AddRange(new object[] {
             "In an academic context, “paper” implies a formal written composition that is inte" +
                 "nded to be published, presented, etc. The “study,” on the other hand, is the act" +
@@ -196,20 +210,24 @@
             this.betterWordsCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
             this.betterWordsCB.MaxDropDownItems = 7;
             this.betterWordsCB.Name = "betterWordsCB";
-            this.betterWordsCB.Size = new System.Drawing.Size(305, 23);
+            this.betterWordsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.betterWordsCB.Size = new System.Drawing.Size(399, 23);
             this.betterWordsCB.ToolTipText = "Better Words";
             this.betterWordsCB.SelectedIndexChanged += new System.EventHandler(this.betterWordsCB_Pick);
             // 
             // contractionsToolStripMenuItem
             // 
+            this.contractionsToolStripMenuItem.AutoSize = false;
             this.contractionsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
             this.contractionsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
             this.contractionsToolStripMenuItem.Name = "contractionsToolStripMenuItem";
-            this.contractionsToolStripMenuItem.Size = new System.Drawing.Size(307, 19);
+            this.contractionsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.contractionsToolStripMenuItem.Text = "Contractions";
             // 
             // contractionsCB
             // 
+            this.contractionsCB.AutoSize = false;
+            this.contractionsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.contractionsCB.DropDownWidth = 300;
             this.contractionsCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contractionsCB.Items.AddRange(new object[] {
@@ -222,21 +240,25 @@
             this.contractionsCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
             this.contractionsCB.MaxDropDownItems = 6;
             this.contractionsCB.Name = "contractionsCB";
-            this.contractionsCB.Size = new System.Drawing.Size(305, 25);
+            this.contractionsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.contractionsCB.Size = new System.Drawing.Size(399, 25);
             this.contractionsCB.Sorted = true;
             this.contractionsCB.ToolTipText = "Contractions";
             this.contractionsCB.SelectedIndexChanged += new System.EventHandler(this.contractionsCB_Pick);
             // 
             // formalityToolStripMenuItem
             // 
+            this.formalityToolStripMenuItem.AutoSize = false;
             this.formalityToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
             this.formalityToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
             this.formalityToolStripMenuItem.Name = "formalityToolStripMenuItem";
-            this.formalityToolStripMenuItem.Size = new System.Drawing.Size(307, 19);
+            this.formalityToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.formalityToolStripMenuItem.Text = "Formality";
             // 
             // formalityCB
             // 
+            this.formalityCB.AutoSize = false;
+            this.formalityCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.formalityCB.DropDownWidth = 300;
             this.formalityCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.formalityCB.Items.AddRange(new object[] {
@@ -251,21 +273,25 @@
             this.formalityCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
             this.formalityCB.MaxDropDownItems = 6;
             this.formalityCB.Name = "formalityCB";
-            this.formalityCB.Size = new System.Drawing.Size(305, 25);
+            this.formalityCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.formalityCB.Size = new System.Drawing.Size(399, 25);
             this.formalityCB.Sorted = true;
             this.formalityCB.ToolTipText = "Formality";
             this.formalityCB.SelectedIndexChanged += new System.EventHandler(this.formalityCB_Pick);
             // 
             // repeatableCommentsToolStripMenuItem
             // 
+            this.repeatableCommentsToolStripMenuItem.AutoSize = false;
             this.repeatableCommentsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
             this.repeatableCommentsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
             this.repeatableCommentsToolStripMenuItem.Name = "repeatableCommentsToolStripMenuItem";
-            this.repeatableCommentsToolStripMenuItem.Size = new System.Drawing.Size(307, 19);
+            this.repeatableCommentsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.repeatableCommentsToolStripMenuItem.Text = "Repeatable Comments";
             // 
             // repeatableCommentsCB
             // 
+            this.repeatableCommentsCB.AutoSize = false;
+            this.repeatableCommentsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.repeatableCommentsCB.DropDownWidth = 300;
             this.repeatableCommentsCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.repeatableCommentsCB.Items.AddRange(new object[] {
@@ -273,28 +299,31 @@
             "This is a better word here.",
             "This is a more natural wording.",
             "This is a simpler, clearer sentence structure.",
-            "This is not clear.\" + Environment.NewLine + Environment.NewLine + \"If you contact" +
-                " me via your Client Manager with an explanation of your meaning, I will be happy" +
-                " to review and correct your wording.",
+            "This is not clear.  If you contact me via your Client Manager with an explanation" +
+                " of your meaning, I will be happy to review and correct your wording.",
             "This was changed for consistency with other occurrences in your paper."});
             this.repeatableCommentsCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
             this.repeatableCommentsCB.MaxDropDownItems = 6;
             this.repeatableCommentsCB.Name = "repeatableCommentsCB";
-            this.repeatableCommentsCB.Size = new System.Drawing.Size(305, 25);
+            this.repeatableCommentsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.repeatableCommentsCB.Size = new System.Drawing.Size(399, 25);
             this.repeatableCommentsCB.Sorted = true;
             this.repeatableCommentsCB.ToolTipText = "Sentences";
             this.repeatableCommentsCB.SelectedIndexChanged += new System.EventHandler(this.repeatableCommentsCB_Pick);
             // 
             // sentencesToolStripMenuItem
             // 
+            this.sentencesToolStripMenuItem.AutoSize = false;
             this.sentencesToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
             this.sentencesToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
             this.sentencesToolStripMenuItem.Name = "sentencesToolStripMenuItem";
-            this.sentencesToolStripMenuItem.Size = new System.Drawing.Size(307, 19);
+            this.sentencesToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.sentencesToolStripMenuItem.Text = "Sentences";
             // 
             // sentencesCB
             // 
+            this.sentencesCB.AutoSize = false;
+            this.sentencesCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sentencesCB.DropDownWidth = 300;
             this.sentencesCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sentencesCB.Items.AddRange(new object[] {
@@ -332,10 +361,44 @@
             this.sentencesCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
             this.sentencesCB.MaxDropDownItems = 18;
             this.sentencesCB.Name = "sentencesCB";
-            this.sentencesCB.Size = new System.Drawing.Size(305, 25);
+            this.sentencesCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.sentencesCB.Size = new System.Drawing.Size(399, 25);
             this.sentencesCB.Sorted = true;
             this.sentencesCB.ToolTipText = "Sentences";
             this.sentencesCB.SelectedIndexChanged += new System.EventHandler(this.sentencesCB_Pick);
+            // 
+            // wordinessToolStripMenuItem
+            // 
+            this.wordinessToolStripMenuItem.AutoSize = false;
+            this.wordinessToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
+            this.wordinessToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
+            this.wordinessToolStripMenuItem.Name = "wordinessToolStripMenuItem";
+            this.wordinessToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
+            this.wordinessToolStripMenuItem.Text = "Wordiness";
+            // 
+            // wordinessCB
+            // 
+            this.wordinessCB.AutoSize = false;
+            this.wordinessCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.wordinessCB.DropDownWidth = 300;
+            this.wordinessCB.Items.AddRange(new object[] {
+            "Edited for redundancy/wordiness.",
+            "Redundancy, that is, the unnecessary repetition of words or ideas, should be avoi" +
+                "ded in academic writing.",
+            "The use of too many words to convey one idea can muddle the message and divert th" +
+                "e reader’s attention. Therefore, especially academic writing, ideas need to be c" +
+                "onveyed as concisely as possible.",
+            "To achieve conciseness, use the word “respectively” to link two or more groups of" +
+                " words.",
+            "Wordiness (the use of many words to convey an idea) should be avoided in academic" +
+                " writing."});
+            this.wordinessCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
+            this.wordinessCB.MaxDropDownItems = 6;
+            this.wordinessCB.Name = "wordinessCB";
+            this.wordinessCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.wordinessCB.Size = new System.Drawing.Size(399, 23);
+            this.wordinessCB.Sorted = true;
+            this.wordinessCB.SelectedIndexChanged += new System.EventHandler(this.wordinessCB_Pick);
             // 
             // toolStripContainer1
             // 
@@ -343,7 +406,7 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(7, 402);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(6, 402);
             // 
             // toolStripContainer1.LeftToolStripPanel
             // 
@@ -351,7 +414,7 @@
             this.toolStripContainer1.Location = new System.Drawing.Point(8, 8);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(317, 402);
+            this.toolStripContainer1.Size = new System.Drawing.Size(410, 402);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             this.toolStripContainer1.TopToolStripPanelVisible = false;
@@ -362,7 +425,7 @@
             this.commentsToggleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.commentsToggleButton.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.commentsToggleButton.ForeColor = System.Drawing.Color.DarkGreen;
-            this.commentsToggleButton.Location = new System.Drawing.Point(71, 470);
+            this.commentsToggleButton.Location = new System.Drawing.Point(118, 532);
             this.commentsToggleButton.Name = "commentsToggleButton";
             this.commentsToggleButton.Size = new System.Drawing.Size(168, 66);
             this.commentsToggleButton.TabIndex = 2;
@@ -380,34 +443,6 @@
             this.menuStripLFTE.Text = "menuStrip1";
             this.menuStripLFTE.Visible = false;
             // 
-            // wordinessToolStripMenuItem
-            // 
-            this.wordinessToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.wordinessToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
-            this.wordinessToolStripMenuItem.Name = "wordinessToolStripMenuItem";
-            this.wordinessToolStripMenuItem.Size = new System.Drawing.Size(307, 19);
-            this.wordinessToolStripMenuItem.Text = "Wordiness";
-            // 
-            // wordinessCB
-            // 
-            this.wordinessCB.Items.AddRange(new object[] {
-            "Edited for redundancy/wordiness.",
-            "Redundancy, that is, the unnecessary repetition of words or ideas, should be avoi" +
-                "ded in academic writing.",
-            "The use of too many words to convey one idea can muddle the message and divert th" +
-                "e reader’s attention. Therefore, especially academic writing, ideas need to be c" +
-                "onveyed as concisely as possible.",
-            "To achieve conciseness, use the word “respectively” to link two or more groups of" +
-                " words.",
-            "Wordiness (the use of many words to convey an idea) should be avoided in academic" +
-                " writing."});
-            this.wordinessCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.wordinessCB.MaxDropDownItems = 6;
-            this.wordinessCB.Name = "wordinessCB";
-            this.wordinessCB.Size = new System.Drawing.Size(305, 23);
-            this.wordinessCB.Sorted = true;
-            this.wordinessCB.SelectedIndexChanged += new System.EventHandler(this.wordinessCB_Pick);
-            // 
             // CommonPhrases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,13 +451,13 @@
             this.Controls.Add(this.commentsToggleButton);
             this.Controls.Add(this.toolStripContainer1);
             this.Controls.Add(this.menuStripLFTE);
-            this.MinimumSize = new System.Drawing.Size(320, 520);
+            this.MinimumSize = new System.Drawing.Size(0, 520);
             this.Name = "CommonPhrases";
-            this.Size = new System.Drawing.Size(330, 573);
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Size = new System.Drawing.Size(429, 614);
             this.menuStripRegular.ResumeLayout(false);
             this.menuStripRegular.PerformLayout();
             this.toolStripContainer1.LeftToolStripPanel.ResumeLayout(false);
-            this.toolStripContainer1.LeftToolStripPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
             this.ResumeLayout(false);
@@ -431,8 +466,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStripRegular;
         private System.Windows.Forms.ToolStripComboBox abbreviationsCB;
         private System.Windows.Forms.ToolStripComboBox contractionsCB;
         private System.Windows.Forms.ToolStripComboBox sentencesCB;
@@ -452,5 +485,6 @@
         private System.Windows.Forms.MenuStrip menuStripLFTE;
         private System.Windows.Forms.ToolStripMenuItem wordinessToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox wordinessCB;
+        public System.Windows.Forms.MenuStrip menuStripRegular;
     }
 }

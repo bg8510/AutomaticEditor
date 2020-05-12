@@ -24,9 +24,6 @@ namespace AutomaticEditor
             sidePanel = new SidePanel();
             customPanel = CustomTaskPanes.Add(sidePanel, "Grammarlin");
             customPanel.Visible = true;
-            //commonPhrases = new CommonPhrases();
-            //commonPhrasePanel = CustomTaskPanes.Add(commonPhrases, "Common Comments");
-            //commonPhrasePanel.Visible = true;
         }
 
         public void ActivateCustomPanel()
@@ -38,16 +35,6 @@ namespace AutomaticEditor
         {
             customPanel.Visible = false;
         }
-
-        //public void ActivateSentencePanel()
-        //{
-        //    sentencePanel.Visible = true;
-        //}
-
-        //public void DisactivateSentencePanel()
-        //{
-        //    sentencePanel.Visible = false;
-        //}
 
         private static void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
