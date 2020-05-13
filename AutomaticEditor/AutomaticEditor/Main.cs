@@ -32,6 +32,7 @@ namespace AutomaticEditor
             commonPhrases = new CommonPhrases(currentDocument);
             commonPhrasePanel = Globals.ThisAddIn.CustomTaskPanes.Add(commonPhrases, "Common Comments");
             commonPhrasePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
+            commonPhrasePanel.Width = 440;
             ActivateCommonPhrasesPanel();
 
             DisactivateSentencePanel();
@@ -108,16 +109,12 @@ namespace AutomaticEditor
 
                 result = StringReplacer("researches", "studies", "The plural form “researches” is very rarely used. “Studies” is better.", true);
                 StringReplacer("Researches", "Studies", "The plural form “researches” is very rarely used. “Studies” is better.", true, commentHasBeenMade: result);
+
+                //RegexReplacer(@"\w+, \w+ and ", @"\w+, \w+, and ", "In academic writing, insert a comma before the conjunction that precedes the last element of a series (e.g., bread, eggs, and milk).");
+
+                // Add the chosen introductory comment at the currently selected range
+                currentDocument.Comments.Add(Globals.ThisAddIn.Application.Selection.Range, introText).Range.Font.Name = "Calibri";
             }
-
-            //StringHighlighter("paper");
-
-
-            //RegexReplacer(@"\w+, \w+ and ", @"\w+, \w+, and ", "In academic writing, insert a comma before the conjunction that precedes the last element of a series (e.g., bread, eggs, and milk).");
-
-            // Add the chosen introductory comment at the currently selected range
-            //currentDocument.Comments.Range.Font.Name = "Calibri";
-            currentDocument.Comments.Add(Globals.ThisAddIn.Application.Selection.Range, introText).Range.Font.Name = "Calibri";
 
             //Spelldoink();
 

@@ -17,6 +17,8 @@ namespace AutomaticEditor
 
         private void ApplyComment(string commentWords, ToolStripComboBox selectedCB, int index)
         {
+            if (commentWords == "") return;
+
             // Add the selected comment at the currently selected range
             Comment comment = Globals.ThisAddIn.Application.ActiveDocument.Comments.Add(Globals.ThisAddIn.Application.Selection.Range, commentWords);
             comment.Range.Font.Name = "Calibri";
@@ -32,6 +34,16 @@ namespace AutomaticEditor
             }
         }
 
+#region ComboBox Handlers
+        private void articlesCB_Pick(object sender, EventArgs e)
+        {
+            string selectedComment = articlesCB.SelectedItem.ToString();
+            int index = articlesCB.SelectedIndex;
+            ApplyComment(selectedComment, articlesCB, index);
+
+            return;
+        }
+
         private void abbreviationsCB_Pick(object sender, EventArgs e)
         {
             string selectedComment = abbreviationsCB.SelectedItem.ToString();
@@ -41,38 +53,11 @@ namespace AutomaticEditor
             return;
         }
 
-        private void contractionsCB_Pick(object sender, EventArgs e)
+        private void adjectivesCB_Pick(object sender, EventArgs e)
         {
-            string selectedComment = contractionsCB.SelectedItem.ToString();
-            int index = contractionsCB.SelectedIndex;
-            ApplyComment(selectedComment, contractionsCB, index);
-            
-            return;
-        }
-
-        private void formalityCB_Pick(object sender, EventArgs e)
-        {
-            string selectedComment = formalityCB.SelectedItem.ToString();
-            int index = formalityCB.SelectedIndex;
-            ApplyComment(selectedComment, formalityCB, index);
-
-            return;
-        }
-
-        private void sentencesCB_Pick(object sender, EventArgs e)
-        {
-            string selectedComment = sentencesCB.SelectedItem.ToString();
-            int index = sentencesCB.SelectedIndex;
-            ApplyComment(selectedComment, sentencesCB, index);
-
-            return;
-        }
-
-        private void articlesCB_Pick(object sender, EventArgs e)
-        {
-            string selectedComment = articlesCB.SelectedItem.ToString();
-            int index = articlesCB.SelectedIndex;
-            ApplyComment(selectedComment, articlesCB, index);
+            string selectedComment = adjectivesCB.SelectedItem.ToString();
+            int index = adjectivesCB.SelectedIndex;
+            ApplyComment(selectedComment, adjectivesCB, index);
 
             return;
         }
@@ -86,11 +71,47 @@ namespace AutomaticEditor
             return;
         }
 
+        private void captionsCB_Pick(object sender, EventArgs e)
+        {
+            string selectedComment = captionsCB.SelectedItem.ToString();
+            int index = captionsCB.SelectedIndex;
+            ApplyComment(selectedComment, captionsCB, index);
+
+            return;
+        }
+
+        private void contractionsCB_Pick(object sender, EventArgs e)
+        {
+            string selectedComment = contractionsCB.SelectedItem.ToString();
+            int index = contractionsCB.SelectedIndex;
+            ApplyComment(selectedComment, contractionsCB, index);
+
+            return;
+        }
+
+        private void formalityCB_Pick(object sender, EventArgs e)
+        {
+            string selectedComment = formalityCB.SelectedItem.ToString();
+            int index = formalityCB.SelectedIndex;
+            ApplyComment(selectedComment, formalityCB, index);
+
+            return;
+        }
+
         private void repeatableCommentsCB_Pick(object sender, EventArgs e)
         {
             string selectedComment = repeatableCommentsCB.SelectedItem.ToString();
             int index = repeatableCommentsCB.SelectedIndex;
             ApplyComment(selectedComment, repeatableCommentsCB, index);
+
+            return;
+        }
+
+        private void sentencesCB_Pick(object sender, EventArgs e)
+        {
+            string selectedComment = sentencesCB.SelectedItem.ToString();
+            int index = sentencesCB.SelectedIndex;
+            ApplyComment(selectedComment, sentencesCB, index);
 
             return;
         }
@@ -103,6 +124,16 @@ namespace AutomaticEditor
 
             return;
         }
+
+        private void ΩCB_Pick(object sender, EventArgs e)
+        {
+            string selectedComment = ΩCB.SelectedItem.ToString();
+            int index = ΩCB.SelectedIndex;
+            ApplyComment(selectedComment, ΩCB, index);
+
+            return;
+        }
+        #endregion
 
         private void commentsToggleButton_Click(object sender, EventArgs e)
         {
@@ -121,6 +152,16 @@ namespace AutomaticEditor
                     break;
             }
             return;
+        }
+
+        private void menuStripRegular_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripContainer1_LeftToolStripPanel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

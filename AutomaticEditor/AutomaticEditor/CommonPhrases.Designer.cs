@@ -32,11 +32,15 @@
             this.menuStripRegular = new System.Windows.Forms.MenuStrip();
             this.articlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.articlesCB = new System.Windows.Forms.ToolStripComboBox();
-            this.abbreviationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.abbreviationsCB = new System.Windows.Forms.ToolStripComboBox();
+            this.abbreviationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adjectivesCB = new System.Windows.Forms.ToolStripComboBox();
             this.betterWordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.betterWordsCB = new System.Windows.Forms.ToolStripComboBox();
-            this.contractionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.captionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.captionsCB = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.contractionsCB = new System.Windows.Forms.ToolStripComboBox();
             this.formalityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formalityCB = new System.Windows.Forms.ToolStripComboBox();
@@ -44,11 +48,13 @@
             this.repeatableCommentsCB = new System.Windows.Forms.ToolStripComboBox();
             this.sentencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sentencesCB = new System.Windows.Forms.ToolStripComboBox();
-            this.wordinessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.wordinessCB = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.commentsToggleButton = new System.Windows.Forms.Button();
             this.menuStripLFTE = new System.Windows.Forms.MenuStrip();
+            this.ωToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ΩCB = new System.Windows.Forms.ToolStripComboBox();
             this.menuStripRegular.SuspendLayout();
             this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -62,11 +68,15 @@
             this.menuStripRegular.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.articlesToolStripMenuItem,
             this.articlesCB,
-            this.abbreviationsToolStripMenuItem,
+            this.toolStripMenuItem3,
             this.abbreviationsCB,
+            this.abbreviationsToolStripMenuItem,
+            this.adjectivesCB,
             this.betterWordsToolStripMenuItem,
             this.betterWordsCB,
-            this.contractionsToolStripMenuItem,
+            this.captionsToolStripMenuItem,
+            this.captionsCB,
+            this.toolStripMenuItem2,
             this.contractionsCB,
             this.formalityToolStripMenuItem,
             this.formalityCB,
@@ -74,23 +84,26 @@
             this.repeatableCommentsCB,
             this.sentencesToolStripMenuItem,
             this.sentencesCB,
-            this.wordinessToolStripMenuItem,
-            this.wordinessCB});
+            this.toolStripMenuItem1,
+            this.wordinessCB,
+            this.ωToolStripMenuItem,
+            this.ΩCB});
             this.menuStripRegular.Location = new System.Drawing.Point(0, 0);
-            this.menuStripRegular.MinimumSize = new System.Drawing.Size(400, 0);
+            this.menuStripRegular.MinimumSize = new System.Drawing.Size(400, 1000);
             this.menuStripRegular.Name = "menuStripRegular";
             this.menuStripRegular.Padding = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.menuStripRegular.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.menuStripRegular.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.menuStripRegular.ShowItemToolTips = true;
-            this.menuStripRegular.Size = new System.Drawing.Size(404, 402);
+            this.menuStripRegular.Size = new System.Drawing.Size(404, 1000);
             this.menuStripRegular.TabIndex = 0;
             this.menuStripRegular.Text = "menuStrip1";
+            this.menuStripRegular.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStripRegular_ItemClicked);
             // 
             // articlesToolStripMenuItem
             // 
             this.articlesToolStripMenuItem.AutoSize = false;
             this.articlesToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.articlesToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
+            this.articlesToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
             this.articlesToolStripMenuItem.Name = "articlesToolStripMenuItem";
             this.articlesToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.articlesToolStripMenuItem.Text = "Articles";
@@ -140,14 +153,14 @@
             this.articlesCB.ToolTipText = "Articles";
             this.articlesCB.SelectedIndexChanged += new System.EventHandler(this.articlesCB_Pick);
             // 
-            // abbreviationsToolStripMenuItem
+            // toolStripMenuItem3
             // 
-            this.abbreviationsToolStripMenuItem.AutoSize = false;
-            this.abbreviationsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.abbreviationsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
-            this.abbreviationsToolStripMenuItem.Name = "abbreviationsToolStripMenuItem";
-            this.abbreviationsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
-            this.abbreviationsToolStripMenuItem.Text = "Abbreviations";
+            this.toolStripMenuItem3.AutoSize = false;
+            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.MistyRose;
+            this.toolStripMenuItem3.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(401, 22);
+            this.toolStripMenuItem3.Text = "Abbreviations";
             // 
             // abbreviationsCB
             // 
@@ -175,13 +188,45 @@
             this.abbreviationsCB.Size = new System.Drawing.Size(399, 25);
             this.abbreviationsCB.Sorted = true;
             this.abbreviationsCB.ToolTipText = "Abbreviations";
-            this.abbreviationsCB.SelectedIndexChanged += new System.EventHandler(this.abbreviationsCB_Pick);
+            // 
+            // abbreviationsToolStripMenuItem
+            // 
+            this.abbreviationsToolStripMenuItem.AutoSize = false;
+            this.abbreviationsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
+            this.abbreviationsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
+            this.abbreviationsToolStripMenuItem.Name = "abbreviationsToolStripMenuItem";
+            this.abbreviationsToolStripMenuItem.Size = new System.Drawing.Size(401, 22);
+            this.abbreviationsToolStripMenuItem.Text = "Adjectives";
+            // 
+            // adjectivesCB
+            // 
+            this.adjectivesCB.AutoSize = false;
+            this.adjectivesCB.BackColor = System.Drawing.SystemColors.Window;
+            this.adjectivesCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.adjectivesCB.DropDownWidth = 300;
+            this.adjectivesCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.adjectivesCB.Items.AddRange(new object[] {
+            "Hyphenate all the words in a compound adjective.",
+            "Compound adjectives that modify a noun are typically hyphenated (But not when the" +
+                " first word of the adjective is an adverb ending with “-ly.”)",
+            "",
+            "Adjectives have a certain correct order. While many native English speakers do no" +
+                "t consciously know this order, it will just sound wrong if the order is not foll" +
+                "owed.",
+            "This word is acting as an adjective here, so it does not use a plural form."});
+            this.adjectivesCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
+            this.adjectivesCB.MaxDropDownItems = 5;
+            this.adjectivesCB.Name = "adjectivesCB";
+            this.adjectivesCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.adjectivesCB.Size = new System.Drawing.Size(399, 25);
+            this.adjectivesCB.ToolTipText = "Adjectives";
+            this.adjectivesCB.SelectedIndexChanged += new System.EventHandler(this.adjectivesCB_Pick);
             // 
             // betterWordsToolStripMenuItem
             // 
             this.betterWordsToolStripMenuItem.AutoSize = false;
             this.betterWordsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.betterWordsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
+            this.betterWordsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
             this.betterWordsToolStripMenuItem.Name = "betterWordsToolStripMenuItem";
             this.betterWordsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.betterWordsToolStripMenuItem.Text = "Better Words";
@@ -215,14 +260,44 @@
             this.betterWordsCB.ToolTipText = "Better Words";
             this.betterWordsCB.SelectedIndexChanged += new System.EventHandler(this.betterWordsCB_Pick);
             // 
-            // contractionsToolStripMenuItem
+            // captionsToolStripMenuItem
             // 
-            this.contractionsToolStripMenuItem.AutoSize = false;
-            this.contractionsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.contractionsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
-            this.contractionsToolStripMenuItem.Name = "contractionsToolStripMenuItem";
-            this.contractionsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
-            this.contractionsToolStripMenuItem.Text = "Contractions";
+            this.captionsToolStripMenuItem.AutoSize = false;
+            this.captionsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
+            this.captionsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
+            this.captionsToolStripMenuItem.Name = "captionsToolStripMenuItem";
+            this.captionsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
+            this.captionsToolStripMenuItem.Text = "Captions";
+            // 
+            // captionsCB
+            // 
+            this.captionsCB.AutoSize = false;
+            this.captionsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.captionsCB.DropDownWidth = 300;
+            this.captionsCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.captionsCB.Items.AddRange(new object[] {
+            "A period is typically not needed at the end of a title or heading.",
+            "Avoid using numerals at the beginning of sentences, titles, or headings.",
+            "Do not start a caption with a phrase like “Flowchart of…” or “Graph of…” Just sta" +
+                "te what the image shows.",
+            "Figures and tables should be referred to in the present tense."});
+            this.captionsCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
+            this.captionsCB.MaxDropDownItems = 4;
+            this.captionsCB.Name = "captionsCB";
+            this.captionsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.captionsCB.Size = new System.Drawing.Size(399, 25);
+            this.captionsCB.Sorted = true;
+            this.captionsCB.ToolTipText = "Captions";
+            this.captionsCB.SelectedIndexChanged += new System.EventHandler(this.captionsCB_Pick);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.AutoSize = false;
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.MistyRose;
+            this.toolStripMenuItem2.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(401, 19);
+            this.toolStripMenuItem2.Text = "Contractions";
             // 
             // contractionsCB
             // 
@@ -250,7 +325,7 @@
             // 
             this.formalityToolStripMenuItem.AutoSize = false;
             this.formalityToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.formalityToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
+            this.formalityToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
             this.formalityToolStripMenuItem.Name = "formalityToolStripMenuItem";
             this.formalityToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.formalityToolStripMenuItem.Text = "Formality";
@@ -283,7 +358,7 @@
             // 
             this.repeatableCommentsToolStripMenuItem.AutoSize = false;
             this.repeatableCommentsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.repeatableCommentsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
+            this.repeatableCommentsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
             this.repeatableCommentsToolStripMenuItem.Name = "repeatableCommentsToolStripMenuItem";
             this.repeatableCommentsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.repeatableCommentsToolStripMenuItem.Text = "Repeatable Comments";
@@ -315,7 +390,7 @@
             // 
             this.sentencesToolStripMenuItem.AutoSize = false;
             this.sentencesToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.sentencesToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
+            this.sentencesToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
             this.sentencesToolStripMenuItem.Name = "sentencesToolStripMenuItem";
             this.sentencesToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
             this.sentencesToolStripMenuItem.Text = "Sentences";
@@ -367,14 +442,14 @@
             this.sentencesCB.ToolTipText = "Sentences";
             this.sentencesCB.SelectedIndexChanged += new System.EventHandler(this.sentencesCB_Pick);
             // 
-            // wordinessToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            this.wordinessToolStripMenuItem.AutoSize = false;
-            this.wordinessToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.wordinessToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
-            this.wordinessToolStripMenuItem.Name = "wordinessToolStripMenuItem";
-            this.wordinessToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
-            this.wordinessToolStripMenuItem.Text = "Wordiness";
+            this.toolStripMenuItem1.AutoSize = false;
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.MistyRose;
+            this.toolStripMenuItem1.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(401, 19);
+            this.toolStripMenuItem1.Text = "Wordiness";
             // 
             // wordinessCB
             // 
@@ -406,15 +481,17 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(6, 402);
+            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(6, 580);
             // 
             // toolStripContainer1.LeftToolStripPanel
             // 
             this.toolStripContainer1.LeftToolStripPanel.Controls.Add(this.menuStripRegular);
-            this.toolStripContainer1.Location = new System.Drawing.Point(8, 8);
+            this.toolStripContainer1.LeftToolStripPanel.MinimumSize = new System.Drawing.Size(0, 900);
+            this.toolStripContainer1.LeftToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_LeftToolStripPanel_Click);
+            this.toolStripContainer1.Location = new System.Drawing.Point(3, 3);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(410, 402);
+            this.toolStripContainer1.Size = new System.Drawing.Size(410, 580);
             this.toolStripContainer1.TabIndex = 1;
             this.toolStripContainer1.Text = "toolStripContainer1";
             this.toolStripContainer1.TopToolStripPanelVisible = false;
@@ -425,7 +502,7 @@
             this.commentsToggleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.commentsToggleButton.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.commentsToggleButton.ForeColor = System.Drawing.Color.DarkGreen;
-            this.commentsToggleButton.Location = new System.Drawing.Point(118, 532);
+            this.commentsToggleButton.Location = new System.Drawing.Point(118, 572);
             this.commentsToggleButton.Name = "commentsToggleButton";
             this.commentsToggleButton.Size = new System.Drawing.Size(168, 66);
             this.commentsToggleButton.TabIndex = 2;
@@ -438,15 +515,63 @@
             this.menuStripLFTE.Dock = System.Windows.Forms.DockStyle.Left;
             this.menuStripLFTE.Location = new System.Drawing.Point(0, 0);
             this.menuStripLFTE.Name = "menuStripLFTE";
-            this.menuStripLFTE.Size = new System.Drawing.Size(126, 573);
+            this.menuStripLFTE.Size = new System.Drawing.Size(126, 810);
             this.menuStripLFTE.TabIndex = 3;
             this.menuStripLFTE.Text = "menuStrip1";
             this.menuStripLFTE.Visible = false;
+            // 
+            // ωToolStripMenuItem
+            // 
+            this.ωToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
+            this.ωToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
+            this.ωToolStripMenuItem.Name = "ωToolStripMenuItem";
+            this.ωToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
+            this.ωToolStripMenuItem.Text = "Ω";
+            // 
+            // ΩCB
+            // 
+            this.ΩCB.Items.AddRange(new object[] {
+            "In academic writing, insert a comma before the conjunction that precedes the last" +
+                " element of a series of more than two items (e.g., bread, eggs, and milk).",
+            "“i.e.” requires a comma; it is the same as saying “for example,” and then listing" +
+                " items.",
+            "",
+            "For clarity, the words or phrases in a list should be parallel in form.",
+            "A “-tion” ending indicates a verb form that has been converted to a noun form. Of" +
+                "ten using the verb form is simpler.",
+            "The convention in English is to capitalize only the first letters of proper nouns" +
+                ", which are the official names of people, places, objects, or events, even if th" +
+                "ey are part of a technical term.",
+            "",
+            "Research cited in the document should be referred to in the past tense.",
+            "The past tense is commonly used in academic writing when describing the methods a" +
+                "nd steps used in an experiment that has already been conducted.",
+            "",
+            "Use an “en dash,” with spaces, for ranges. (In Word, an en dash is Ctrl + -)",
+            "Only use “respectively” if you have two lists of items that line up with each oth" +
+                "er in the order they were listed.",
+            "The phrase “et al.” is accompanied by a plural verb, because it refers to multipl" +
+                "e people.",
+            "The preposition “in” is used when describing a change, such as an increase or dec" +
+                "rease, whereas “of” is used for the magnitude of the change.",
+            "In scientific and technical writing, the prevailing style is to write out the num" +
+                "bers zero to ten. Although the main concern should be expressing numbers consist" +
+                "ently.",
+            "",
+            "This is the British spelling.",
+            "This is the American spelling."});
+            this.ΩCB.MaxDropDownItems = 18;
+            this.ΩCB.Name = "ΩCB";
+            this.ΩCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ΩCB.Size = new System.Drawing.Size(399, 23);
+            this.ΩCB.ToolTipText = "Other Stuff";
+            this.ΩCB.SelectedIndexChanged += new System.EventHandler(this.ΩCB_Pick);
             // 
             // CommonPhrases
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScrollMargin = new System.Drawing.Size(10, 0);
             this.BackColor = System.Drawing.Color.DimGray;
             this.Controls.Add(this.commentsToggleButton);
             this.Controls.Add(this.toolStripContainer1);
@@ -454,7 +579,7 @@
             this.MinimumSize = new System.Drawing.Size(0, 520);
             this.Name = "CommonPhrases";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(429, 614);
+            this.Size = new System.Drawing.Size(422, 810);
             this.menuStripRegular.ResumeLayout(false);
             this.menuStripRegular.PerformLayout();
             this.toolStripContainer1.LeftToolStripPanel.ResumeLayout(false);
@@ -466,7 +591,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripComboBox abbreviationsCB;
+        private System.Windows.Forms.ToolStripComboBox adjectivesCB;
         private System.Windows.Forms.ToolStripComboBox contractionsCB;
         private System.Windows.Forms.ToolStripComboBox sentencesCB;
         private System.Windows.Forms.ToolStripComboBox formalityCB;
@@ -474,7 +599,7 @@
         private System.Windows.Forms.ToolStripMenuItem articlesToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox articlesCB;
         private System.Windows.Forms.ToolStripMenuItem abbreviationsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contractionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem captionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem formalityToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sentencesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem betterWordsToolStripMenuItem;
@@ -483,8 +608,14 @@
         private System.Windows.Forms.ToolStripComboBox repeatableCommentsCB;
         private System.Windows.Forms.Button commentsToggleButton;
         private System.Windows.Forms.MenuStrip menuStripLFTE;
-        private System.Windows.Forms.ToolStripMenuItem wordinessToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox wordinessCB;
         public System.Windows.Forms.MenuStrip menuStripRegular;
+        private System.Windows.Forms.ToolStripComboBox captionsCB;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripComboBox abbreviationsCB;
+        private System.Windows.Forms.ToolStripMenuItem ωToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox ΩCB;
     }
 }
