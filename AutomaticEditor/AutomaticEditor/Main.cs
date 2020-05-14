@@ -82,7 +82,6 @@ namespace AutomaticEditor
                 result = StringReplacer("All of", "All", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", true, commentHasBeenMade: result);
                 StringReplacer("all of", "all", "The use of too many words to convey one idea can muddle the message and divert the reader’s attention. Therefore, especially academic writing, ideas need to be conveyed as concisely as possible.", true);
 
-
                 result = StringReplacer("Nowadays", "Currently", "“Nowadays” is too informal for academic writing.", true);
                 StringReplacer("nowadays", "currently", "“Nowadays” is too informal for academic writing.", true, commentHasBeenMade: result);
 

@@ -186,7 +186,7 @@
     <EmbeddedResource Include="CommonPhrases.resx">
       <DependentUpon>CommonPhrases.cs</DependentUpon>
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>CommonPhrases1.Designer.cs</LastGenOutput>
+      <LastGenOutput>CommonPhrases.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOptions.resx">
       <DependentUpon>frmOptions.cs</DependentUpon>
