@@ -28,92 +28,131 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Button CommentsToggle;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CommonPhrases));
-            this.menuStripRegular = new System.Windows.Forms.MenuStrip();
-            this.articlesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.articlesCB = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.abbreviationsCB = new System.Windows.Forms.ToolStripComboBox();
-            this.abbreviationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adjectivesCB = new System.Windows.Forms.ToolStripComboBox();
-            this.betterWordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.betterWordsCB = new System.Windows.Forms.ToolStripComboBox();
-            this.captionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.captionsCB = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.contractionsCB = new System.Windows.Forms.ToolStripComboBox();
-            this.formalityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formalityCB = new System.Windows.Forms.ToolStripComboBox();
-            this.repeatableCommentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.repeatableCommentsCB = new System.Windows.Forms.ToolStripComboBox();
-            this.sentencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sentencesCB = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.wordinessCB = new System.Windows.Forms.ToolStripComboBox();
-            this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.commentsToggleButton = new System.Windows.Forms.Button();
-            this.menuStripLFTE = new System.Windows.Forms.MenuStrip();
-            this.ωToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ΩCB = new System.Windows.Forms.ToolStripComboBox();
-            this.menuStripRegular.SuspendLayout();
-            this.toolStripContainer1.LeftToolStripPanel.SuspendLayout();
-            this.toolStripContainer1.SuspendLayout();
+            this.AbbreviationsCB = new System.Windows.Forms.ComboBox();
+            this.AbbreviationsLabel = new System.Windows.Forms.Label();
+            this.AdjectivesLabel = new System.Windows.Forms.Label();
+            this.AdjectivesCB = new System.Windows.Forms.ComboBox();
+            this.ArticlesLabel = new System.Windows.Forms.Label();
+            this.ArticlesCB = new System.Windows.Forms.ComboBox();
+            this.BetterWordsLabel = new System.Windows.Forms.Label();
+            this.BetterWordsCB = new System.Windows.Forms.ComboBox();
+            this.CaptionsLabel = new System.Windows.Forms.Label();
+            this.CaptionsCB = new System.Windows.Forms.ComboBox();
+            this.ContractionsLabel = new System.Windows.Forms.Label();
+            this.ContractionsCB = new System.Windows.Forms.ComboBox();
+            this.FormalityLabel = new System.Windows.Forms.Label();
+            this.FormalityCB = new System.Windows.Forms.ComboBox();
+            this.RepeatableCommentsLabel = new System.Windows.Forms.Label();
+            this.RepeatableCommentsCB = new System.Windows.Forms.ComboBox();
+            this.SentencesLabel = new System.Windows.Forms.Label();
+            this.SentencesCB = new System.Windows.Forms.ComboBox();
+            this.WordinessLabel = new System.Windows.Forms.Label();
+            this.WordinessCB = new System.Windows.Forms.ComboBox();
+            this.ΩLabel = new System.Windows.Forms.Label();
+            this.ΩCB = new System.Windows.Forms.ComboBox();
+            CommentsToggle = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // menuStripRegular
+            // CommentsToggle
             // 
-            this.menuStripRegular.AutoSize = false;
-            this.menuStripRegular.BackColor = System.Drawing.Color.DimGray;
-            this.menuStripRegular.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStripRegular.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.articlesToolStripMenuItem,
-            this.articlesCB,
-            this.toolStripMenuItem3,
-            this.abbreviationsCB,
-            this.abbreviationsToolStripMenuItem,
-            this.adjectivesCB,
-            this.betterWordsToolStripMenuItem,
-            this.betterWordsCB,
-            this.captionsToolStripMenuItem,
-            this.captionsCB,
-            this.toolStripMenuItem2,
-            this.contractionsCB,
-            this.formalityToolStripMenuItem,
-            this.formalityCB,
-            this.repeatableCommentsToolStripMenuItem,
-            this.repeatableCommentsCB,
-            this.sentencesToolStripMenuItem,
-            this.sentencesCB,
-            this.toolStripMenuItem1,
-            this.wordinessCB,
-            this.ωToolStripMenuItem,
-            this.ΩCB});
-            this.menuStripRegular.Location = new System.Drawing.Point(0, 0);
-            this.menuStripRegular.MinimumSize = new System.Drawing.Size(400, 1000);
-            this.menuStripRegular.Name = "menuStripRegular";
-            this.menuStripRegular.Padding = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.menuStripRegular.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStripRegular.ShowItemToolTips = true;
-            this.menuStripRegular.Size = new System.Drawing.Size(404, 1000);
-            this.menuStripRegular.TabIndex = 0;
-            this.menuStripRegular.Text = "menuStrip1";
-            this.menuStripRegular.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStripRegular_ItemClicked);
+            CommentsToggle.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            CommentsToggle.BackColor = System.Drawing.Color.MistyRose;
+            CommentsToggle.Enabled = false;
+            CommentsToggle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            CommentsToggle.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            CommentsToggle.ForeColor = System.Drawing.Color.DarkGreen;
+            CommentsToggle.Location = new System.Drawing.Point(166, 719);
+            CommentsToggle.Name = "CommentsToggle";
+            CommentsToggle.Size = new System.Drawing.Size(184, 66);
+            CommentsToggle.TabIndex = 2;
+            CommentsToggle.Text = "Toggle to LFTE Comments";
+            CommentsToggle.UseVisualStyleBackColor = false;
+            CommentsToggle.Click += new System.EventHandler(this.CommentsToggleButton_Click);
             // 
-            // articlesToolStripMenuItem
+            // AbbreviationsCB
             // 
-            this.articlesToolStripMenuItem.AutoSize = false;
-            this.articlesToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.articlesToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
-            this.articlesToolStripMenuItem.Name = "articlesToolStripMenuItem";
-            this.articlesToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
-            this.articlesToolStripMenuItem.Text = "Articles";
+            this.AbbreviationsCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbbreviationsCB.FormattingEnabled = true;
+            this.AbbreviationsCB.Items.AddRange(new object[] {
+            "You do not need to define an abbreviation that you never use.",
+            "You do not need to define an abbreviation in the abstract that you never use in t" +
+                "he abstract.",
+            "Once you define an abbreviation, use it.",
+            "Define an abbreviation the first time you use it. Please make sure this is the co" +
+                "rrect definition.",
+            "Redefine the abbreviation in the main text. Some readers will not read both the a" +
+                "bstract and the main text.",
+            "When using an abbreviation, the last word that the abbreviation stands for should" +
+                " not be repeated after it.",
+            resources.GetString("AbbreviationsCB.Items"),
+            "“al” is an abbreviation and requires a period."});
+            this.AbbreviationsCB.Location = new System.Drawing.Point(7, 40);
+            this.AbbreviationsCB.Name = "AbbreviationsCB";
+            this.AbbreviationsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.AbbreviationsCB.Size = new System.Drawing.Size(500, 24);
+            this.AbbreviationsCB.TabIndex = 3;
+            this.AbbreviationsCB.SelectedIndexChanged += new System.EventHandler(this.AbbreviationsCB_Pick);
             // 
-            // articlesCB
+            // AbbreviationsLabel
             // 
-            this.articlesCB.AutoSize = false;
-            this.articlesCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.articlesCB.DropDownWidth = 300;
-            this.articlesCB.Items.AddRange(new object[] {
+            this.AbbreviationsLabel.AutoSize = true;
+            this.AbbreviationsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AbbreviationsLabel.ForeColor = System.Drawing.Color.MistyRose;
+            this.AbbreviationsLabel.Location = new System.Drawing.Point(10, 16);
+            this.AbbreviationsLabel.Name = "AbbreviationsLabel";
+            this.AbbreviationsLabel.Size = new System.Drawing.Size(105, 20);
+            this.AbbreviationsLabel.TabIndex = 4;
+            this.AbbreviationsLabel.Text = "Abbreviations";
+            // 
+            // AdjectivesLabel
+            // 
+            this.AdjectivesLabel.AutoSize = true;
+            this.AdjectivesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdjectivesLabel.ForeColor = System.Drawing.Color.MistyRose;
+            this.AdjectivesLabel.Location = new System.Drawing.Point(10, 76);
+            this.AdjectivesLabel.Name = "AdjectivesLabel";
+            this.AdjectivesLabel.Size = new System.Drawing.Size(81, 20);
+            this.AdjectivesLabel.TabIndex = 6;
+            this.AdjectivesLabel.Text = "Adjectives";
+            // 
+            // AdjectivesCB
+            // 
+            this.AdjectivesCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdjectivesCB.FormattingEnabled = true;
+            this.AdjectivesCB.Items.AddRange(new object[] {
+            "Hyphenate all the words in a compound adjective.",
+            "Compound adjectives that modify a noun are typically hyphenated (But not when the" +
+                " first word of the adjective is an adverb ending with “-ly.”)",
+            "This word is acting as an adjective here, so it does not use a plural form.",
+            "Adjectives have a certain correct order. While many native English speakers do no" +
+                "t consciously know this order, it will just sound wrong if the order is not foll" +
+                "owed."});
+            this.AdjectivesCB.Location = new System.Drawing.Point(7, 100);
+            this.AdjectivesCB.MaxDropDownItems = 4;
+            this.AdjectivesCB.Name = "AdjectivesCB";
+            this.AdjectivesCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.AdjectivesCB.Size = new System.Drawing.Size(500, 24);
+            this.AdjectivesCB.TabIndex = 5;
+            this.AdjectivesCB.SelectedIndexChanged += new System.EventHandler(this.AdjectivesCB_Pick);
+            // 
+            // ArticlesLabel
+            // 
+            this.ArticlesLabel.AutoSize = true;
+            this.ArticlesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArticlesLabel.ForeColor = System.Drawing.Color.MistyRose;
+            this.ArticlesLabel.Location = new System.Drawing.Point(10, 136);
+            this.ArticlesLabel.Name = "ArticlesLabel";
+            this.ArticlesLabel.Size = new System.Drawing.Size(61, 20);
+            this.ArticlesLabel.TabIndex = 8;
+            this.ArticlesLabel.Text = "Articles";
+            // 
+            // ArticlesCB
+            // 
+            this.ArticlesCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArticlesCB.FormattingEnabled = true;
+            this.ArticlesCB.Items.AddRange(new object[] {
             "Use the indefinite article “a” when referring to a single, nonspecific object tha" +
                 "t begins with a consonant.",
             "Use the indefinite article “an” when referring to a single, nonspecific object if" +
@@ -129,7 +168,7 @@
                 "ntains, except when the country is a collection of states such as “the” United K" +
                 "ingdom.",
             "Use an article with bodies of water, oceans, and seas.",
-            resources.GetString("articlesCB.Items"),
+            resources.GetString("ArticlesCB.Items"),
             "The definite article “the” is used before decades (e.g., the 1980s).",
             "Superlatives such as “highest” and “fastest” take the definite article “the” befo" +
                 "re them.",
@@ -144,99 +183,31 @@
                 "ecific instance of the thing.",
             "Articles such as “a,” “an,” and “the” are generally not required in titles, headi" +
                 "ngs, or captions.",
-            "Do not start a caption with an article (“a,” “an,” or “the”)"});
-            this.articlesCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.articlesCB.MaxDropDownItems = 17;
-            this.articlesCB.Name = "articlesCB";
-            this.articlesCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.articlesCB.Size = new System.Drawing.Size(400, 23);
-            this.articlesCB.ToolTipText = "Articles";
-            this.articlesCB.SelectedIndexChanged += new System.EventHandler(this.articlesCB_Pick);
+            "Do not start a caption with an article (“a,” “an,” or “the”)."});
+            this.ArticlesCB.Location = new System.Drawing.Point(7, 160);
+            this.ArticlesCB.MaxDropDownItems = 17;
+            this.ArticlesCB.Name = "ArticlesCB";
+            this.ArticlesCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ArticlesCB.Size = new System.Drawing.Size(500, 24);
+            this.ArticlesCB.TabIndex = 7;
+            this.ArticlesCB.SelectedIndexChanged += new System.EventHandler(this.ArticlesCB_Pick);
             // 
-            // toolStripMenuItem3
+            // BetterWordsLabel
             // 
-            this.toolStripMenuItem3.AutoSize = false;
-            this.toolStripMenuItem3.ForeColor = System.Drawing.Color.MistyRose;
-            this.toolStripMenuItem3.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(401, 22);
-            this.toolStripMenuItem3.Text = "Abbreviations";
+            this.BetterWordsLabel.AutoSize = true;
+            this.BetterWordsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BetterWordsLabel.ForeColor = System.Drawing.Color.MistyRose;
+            this.BetterWordsLabel.Location = new System.Drawing.Point(10, 196);
+            this.BetterWordsLabel.Name = "BetterWordsLabel";
+            this.BetterWordsLabel.Size = new System.Drawing.Size(103, 20);
+            this.BetterWordsLabel.TabIndex = 10;
+            this.BetterWordsLabel.Text = "Better Words";
             // 
-            // abbreviationsCB
+            // BetterWordsCB
             // 
-            this.abbreviationsCB.AutoSize = false;
-            this.abbreviationsCB.BackColor = System.Drawing.SystemColors.Window;
-            this.abbreviationsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.abbreviationsCB.DropDownWidth = 300;
-            this.abbreviationsCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.abbreviationsCB.Items.AddRange(new object[] {
-            "“al” is an abbreviation and requires a period.",
-            "Define an abbreviation the first time you use it. Please make sure this is the co" +
-                "rrect definition.",
-            resources.GetString("abbreviationsCB.Items"),
-            "Once you define an abbreviation, use it.",
-            "Redefine the abbreviation in the main text. Some readers will not read both the a" +
-                "bstract and the main text.",
-            "When using an abbreviation, the last word that the abbreviation stands for should" +
-                " not be repeated after it.",
-            "You do not need to define an abbreviation in the abstract that you never use in t" +
-                "he abstract.",
-            "You do not need to define an abbreviation that you never use."});
-            this.abbreviationsCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.abbreviationsCB.Name = "abbreviationsCB";
-            this.abbreviationsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.abbreviationsCB.Size = new System.Drawing.Size(399, 25);
-            this.abbreviationsCB.Sorted = true;
-            this.abbreviationsCB.ToolTipText = "Abbreviations";
-            // 
-            // abbreviationsToolStripMenuItem
-            // 
-            this.abbreviationsToolStripMenuItem.AutoSize = false;
-            this.abbreviationsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.abbreviationsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
-            this.abbreviationsToolStripMenuItem.Name = "abbreviationsToolStripMenuItem";
-            this.abbreviationsToolStripMenuItem.Size = new System.Drawing.Size(401, 22);
-            this.abbreviationsToolStripMenuItem.Text = "Adjectives";
-            // 
-            // adjectivesCB
-            // 
-            this.adjectivesCB.AutoSize = false;
-            this.adjectivesCB.BackColor = System.Drawing.SystemColors.Window;
-            this.adjectivesCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.adjectivesCB.DropDownWidth = 300;
-            this.adjectivesCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adjectivesCB.Items.AddRange(new object[] {
-            "Hyphenate all the words in a compound adjective.",
-            "Compound adjectives that modify a noun are typically hyphenated (But not when the" +
-                " first word of the adjective is an adverb ending with “-ly.”)",
-            "",
-            "Adjectives have a certain correct order. While many native English speakers do no" +
-                "t consciously know this order, it will just sound wrong if the order is not foll" +
-                "owed.",
-            "This word is acting as an adjective here, so it does not use a plural form."});
-            this.adjectivesCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.adjectivesCB.MaxDropDownItems = 5;
-            this.adjectivesCB.Name = "adjectivesCB";
-            this.adjectivesCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.adjectivesCB.Size = new System.Drawing.Size(399, 25);
-            this.adjectivesCB.ToolTipText = "Adjectives";
-            this.adjectivesCB.SelectedIndexChanged += new System.EventHandler(this.adjectivesCB_Pick);
-            // 
-            // betterWordsToolStripMenuItem
-            // 
-            this.betterWordsToolStripMenuItem.AutoSize = false;
-            this.betterWordsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.betterWordsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
-            this.betterWordsToolStripMenuItem.Name = "betterWordsToolStripMenuItem";
-            this.betterWordsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
-            this.betterWordsToolStripMenuItem.Text = "Better Words";
-            // 
-            // betterWordsCB
-            // 
-            this.betterWordsCB.AutoSize = false;
-            this.betterWordsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.betterWordsCB.DropDownWidth = 300;
-            this.betterWordsCB.Items.AddRange(new object[] {
+            this.BetterWordsCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BetterWordsCB.FormattingEnabled = true;
+            this.BetterWordsCB.Items.AddRange(new object[] {
             "In an academic context, “paper” implies a formal written composition that is inte" +
                 "nded to be published, presented, etc. The “study,” on the other hand, is the act" +
                 "ual work carried out.",
@@ -251,294 +222,260 @@
             "The plural form “researches” is an older form that is very rarely used. “Studies”" +
                 " is better.",
             "“is able to” is an unnecessarily complicated way to say “can.”",
-            "“was able to” is an unnecessarily complicated way to say “could.”"});
-            this.betterWordsCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.betterWordsCB.MaxDropDownItems = 7;
-            this.betterWordsCB.Name = "betterWordsCB";
-            this.betterWordsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.betterWordsCB.Size = new System.Drawing.Size(399, 23);
-            this.betterWordsCB.ToolTipText = "Better Words";
-            this.betterWordsCB.SelectedIndexChanged += new System.EventHandler(this.betterWordsCB_Pick);
+            "“was able to” is an unnecessarily complicated way to say “could.”",
+            "\"by using\" means the same thing as \"using.\"",
+            "Using \"employ\" to mean \"using\" can seem overly formal, or even pretentious."});
+            this.BetterWordsCB.Location = new System.Drawing.Point(7, 220);
+            this.BetterWordsCB.MaxDropDownItems = 11;
+            this.BetterWordsCB.Name = "BetterWordsCB";
+            this.BetterWordsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.BetterWordsCB.Size = new System.Drawing.Size(500, 24);
+            this.BetterWordsCB.TabIndex = 9;
+            this.BetterWordsCB.SelectedIndexChanged += new System.EventHandler(this.BetterWordsCB_Pick);
             // 
-            // captionsToolStripMenuItem
+            // CaptionsLabel
             // 
-            this.captionsToolStripMenuItem.AutoSize = false;
-            this.captionsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.captionsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
-            this.captionsToolStripMenuItem.Name = "captionsToolStripMenuItem";
-            this.captionsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
-            this.captionsToolStripMenuItem.Text = "Captions";
+            this.CaptionsLabel.AutoSize = true;
+            this.CaptionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CaptionsLabel.ForeColor = System.Drawing.Color.MistyRose;
+            this.CaptionsLabel.Location = new System.Drawing.Point(10, 256);
+            this.CaptionsLabel.Name = "CaptionsLabel";
+            this.CaptionsLabel.Size = new System.Drawing.Size(72, 20);
+            this.CaptionsLabel.TabIndex = 12;
+            this.CaptionsLabel.Text = "Captions";
             // 
-            // captionsCB
+            // CaptionsCB
             // 
-            this.captionsCB.AutoSize = false;
-            this.captionsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.captionsCB.DropDownWidth = 300;
-            this.captionsCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.captionsCB.Items.AddRange(new object[] {
+            this.CaptionsCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CaptionsCB.FormattingEnabled = true;
+            this.CaptionsCB.Items.AddRange(new object[] {
             "A period is typically not needed at the end of a title or heading.",
             "Avoid using numerals at the beginning of sentences, titles, or headings.",
             "Do not start a caption with a phrase like “Flowchart of…” or “Graph of…” Just sta" +
                 "te what the image shows.",
             "Figures and tables should be referred to in the present tense."});
-            this.captionsCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.captionsCB.MaxDropDownItems = 4;
-            this.captionsCB.Name = "captionsCB";
-            this.captionsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.captionsCB.Size = new System.Drawing.Size(399, 25);
-            this.captionsCB.Sorted = true;
-            this.captionsCB.ToolTipText = "Captions";
-            this.captionsCB.SelectedIndexChanged += new System.EventHandler(this.captionsCB_Pick);
+            this.CaptionsCB.Location = new System.Drawing.Point(7, 280);
+            this.CaptionsCB.MaxDropDownItems = 4;
+            this.CaptionsCB.Name = "CaptionsCB";
+            this.CaptionsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CaptionsCB.Size = new System.Drawing.Size(500, 24);
+            this.CaptionsCB.TabIndex = 11;
+            this.CaptionsCB.SelectedIndexChanged += new System.EventHandler(this.CaptionsCB_Pick);
             // 
-            // toolStripMenuItem2
+            // ContractionsLabel
             // 
-            this.toolStripMenuItem2.AutoSize = false;
-            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.MistyRose;
-            this.toolStripMenuItem2.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(401, 19);
-            this.toolStripMenuItem2.Text = "Contractions";
+            this.ContractionsLabel.AutoSize = true;
+            this.ContractionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContractionsLabel.ForeColor = System.Drawing.Color.MistyRose;
+            this.ContractionsLabel.Location = new System.Drawing.Point(10, 316);
+            this.ContractionsLabel.Name = "ContractionsLabel";
+            this.ContractionsLabel.Size = new System.Drawing.Size(99, 20);
+            this.ContractionsLabel.TabIndex = 14;
+            this.ContractionsLabel.Text = "Contractions";
             // 
-            // contractionsCB
+            // ContractionsCB
             // 
-            this.contractionsCB.AutoSize = false;
-            this.contractionsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.contractionsCB.DropDownWidth = 300;
-            this.contractionsCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contractionsCB.Items.AddRange(new object[] {
-            "Contractions like “can’t” should be avoided in academic writing.",
-            "Contractions like “didn’t” should be avoided in academic writing.",
-            "Contractions like “doesn’t” should be avoided in academic writing.",
-            "Contractions like “don’t” should be avoided in academic writing.",
-            "Contractions like “I’d” should be avoided in academic writing.",
-            "Contractions like “won’t” should be avoided in academic writing."});
-            this.contractionsCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.contractionsCB.MaxDropDownItems = 6;
-            this.contractionsCB.Name = "contractionsCB";
-            this.contractionsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.contractionsCB.Size = new System.Drawing.Size(399, 25);
-            this.contractionsCB.Sorted = true;
-            this.contractionsCB.ToolTipText = "Contractions";
-            this.contractionsCB.SelectedIndexChanged += new System.EventHandler(this.contractionsCB_Pick);
+            this.ContractionsCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContractionsCB.FormattingEnabled = true;
+            this.ContractionsCB.Items.AddRange(new object[] {
+            "Avoid using contractions like “can’t” in academic writing.",
+            "Avoid using contractions like “didn’t” in academic writing.",
+            "Avoid using contractions like “doesn’t” in academic writing.",
+            "Avoid using contractions like “don’t” in academic writing.",
+            "Avoid using contractions like “I’d” in academic writing.",
+            "Avoid using contractions like “won’t” in academic writing."});
+            this.ContractionsCB.Location = new System.Drawing.Point(7, 340);
+            this.ContractionsCB.MaxDropDownItems = 6;
+            this.ContractionsCB.Name = "ContractionsCB";
+            this.ContractionsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ContractionsCB.Size = new System.Drawing.Size(500, 24);
+            this.ContractionsCB.TabIndex = 13;
+            this.ContractionsCB.SelectedIndexChanged += new System.EventHandler(this.ContractionsCB_Pick);
             // 
-            // formalityToolStripMenuItem
+            // FormalityLabel
             // 
-            this.formalityToolStripMenuItem.AutoSize = false;
-            this.formalityToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.formalityToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
-            this.formalityToolStripMenuItem.Name = "formalityToolStripMenuItem";
-            this.formalityToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
-            this.formalityToolStripMenuItem.Text = "Formality";
+            this.FormalityLabel.AutoSize = true;
+            this.FormalityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormalityLabel.ForeColor = System.Drawing.Color.MistyRose;
+            this.FormalityLabel.Location = new System.Drawing.Point(10, 376);
+            this.FormalityLabel.Name = "FormalityLabel";
+            this.FormalityLabel.Size = new System.Drawing.Size(73, 20);
+            this.FormalityLabel.TabIndex = 16;
+            this.FormalityLabel.Text = "Formality";
             // 
-            // formalityCB
+            // FormalityCB
             // 
-            this.formalityCB.AutoSize = false;
-            this.formalityCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.formalityCB.DropDownWidth = 300;
-            this.formalityCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.formalityCB.Items.AddRange(new object[] {
+            this.FormalityCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormalityCB.FormattingEnabled = true;
+            this.FormalityCB.Items.AddRange(new object[] {
             "“a lot of” is too informal.",
-            "“and/or” should be avoided in formal writing.",
-            "“Huge” is too informal for academic writing.",
-            "“more and more” is too informal for academic writing.",
-            "“Nowadays” is too informal for academic writing.",
             "“What\'s more” is too informal for academic writing.",
+            "“Nowadays” is too informal for academic writing.",
+            "“more and more” is too informal for academic writing.",
+            "“Huge” is too informal for academic writing.",
             "In formal American English, periods and commas go inside the quotes, even if they" +
-                " were not part of the thing being quoted."});
-            this.formalityCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.formalityCB.MaxDropDownItems = 6;
-            this.formalityCB.Name = "formalityCB";
-            this.formalityCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.formalityCB.Size = new System.Drawing.Size(399, 25);
-            this.formalityCB.Sorted = true;
-            this.formalityCB.ToolTipText = "Formality";
-            this.formalityCB.SelectedIndexChanged += new System.EventHandler(this.formalityCB_Pick);
+                " were not part of the thing being quoted.",
+            "“and/or” should be avoided in formal writing.",
+            "This is more formal wording."});
+            this.FormalityCB.Location = new System.Drawing.Point(7, 401);
+            this.FormalityCB.Name = "FormalityCB";
+            this.FormalityCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.FormalityCB.Size = new System.Drawing.Size(500, 24);
+            this.FormalityCB.TabIndex = 15;
+            this.FormalityCB.SelectedIndexChanged += new System.EventHandler(this.FormalityCB_Pick);
             // 
-            // repeatableCommentsToolStripMenuItem
+            // RepeatableCommentsLabel
             // 
-            this.repeatableCommentsToolStripMenuItem.AutoSize = false;
-            this.repeatableCommentsToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.repeatableCommentsToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
-            this.repeatableCommentsToolStripMenuItem.Name = "repeatableCommentsToolStripMenuItem";
-            this.repeatableCommentsToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
-            this.repeatableCommentsToolStripMenuItem.Text = "Repeatable Comments";
+            this.RepeatableCommentsLabel.AutoSize = true;
+            this.RepeatableCommentsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RepeatableCommentsLabel.ForeColor = System.Drawing.Color.MistyRose;
+            this.RepeatableCommentsLabel.Location = new System.Drawing.Point(10, 436);
+            this.RepeatableCommentsLabel.Name = "RepeatableCommentsLabel";
+            this.RepeatableCommentsLabel.Size = new System.Drawing.Size(173, 20);
+            this.RepeatableCommentsLabel.TabIndex = 18;
+            this.RepeatableCommentsLabel.Text = "Repeatable Comments";
             // 
-            // repeatableCommentsCB
+            // RepeatableCommentsCB
             // 
-            this.repeatableCommentsCB.AutoSize = false;
-            this.repeatableCommentsCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.repeatableCommentsCB.DropDownWidth = 300;
-            this.repeatableCommentsCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repeatableCommentsCB.Items.AddRange(new object[] {
+            this.RepeatableCommentsCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RepeatableCommentsCB.FormattingEnabled = true;
+            this.RepeatableCommentsCB.Items.AddRange(new object[] {
+            "This is not clear. If you contact me via your Client Manager with an explanation " +
+                "of your meaning, I will be happy to review and correct your wording.",
             "Please make sure I did not change your intended meaning.",
             "This is a better word here.",
             "This is a more natural wording.",
             "This is a simpler, clearer sentence structure.",
-            "This is not clear.  If you contact me via your Client Manager with an explanation" +
-                " of your meaning, I will be happy to review and correct your wording.",
             "This was changed for consistency with other occurrences in your paper."});
-            this.repeatableCommentsCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.repeatableCommentsCB.MaxDropDownItems = 6;
-            this.repeatableCommentsCB.Name = "repeatableCommentsCB";
-            this.repeatableCommentsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.repeatableCommentsCB.Size = new System.Drawing.Size(399, 25);
-            this.repeatableCommentsCB.Sorted = true;
-            this.repeatableCommentsCB.ToolTipText = "Sentences";
-            this.repeatableCommentsCB.SelectedIndexChanged += new System.EventHandler(this.repeatableCommentsCB_Pick);
+            this.RepeatableCommentsCB.Location = new System.Drawing.Point(7, 460);
+            this.RepeatableCommentsCB.MaxDropDownItems = 6;
+            this.RepeatableCommentsCB.Name = "RepeatableCommentsCB";
+            this.RepeatableCommentsCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.RepeatableCommentsCB.Size = new System.Drawing.Size(500, 24);
+            this.RepeatableCommentsCB.TabIndex = 17;
+            this.RepeatableCommentsCB.SelectedIndexChanged += new System.EventHandler(this.RepeatableCommentsCB_Pick);
             // 
-            // sentencesToolStripMenuItem
+            // SentencesLabel
             // 
-            this.sentencesToolStripMenuItem.AutoSize = false;
-            this.sentencesToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.sentencesToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
-            this.sentencesToolStripMenuItem.Name = "sentencesToolStripMenuItem";
-            this.sentencesToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
-            this.sentencesToolStripMenuItem.Text = "Sentences";
+            this.SentencesLabel.AutoSize = true;
+            this.SentencesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SentencesLabel.ForeColor = System.Drawing.Color.MistyRose;
+            this.SentencesLabel.Location = new System.Drawing.Point(10, 496);
+            this.SentencesLabel.Name = "SentencesLabel";
+            this.SentencesLabel.Size = new System.Drawing.Size(86, 20);
+            this.SentencesLabel.TabIndex = 20;
+            this.SentencesLabel.Text = "Sentences";
             // 
-            // sentencesCB
+            // SentencesCB
             // 
-            this.sentencesCB.AutoSize = false;
-            this.sentencesCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.sentencesCB.DropDownWidth = 300;
-            this.sentencesCB.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sentencesCB.Items.AddRange(new object[] {
+            this.SentencesCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SentencesCB.FormattingEnabled = true;
+            this.SentencesCB.Items.AddRange(new object[] {
             "A comma should preferably be inserted after introductory words and phrases.",
-            "A singular subject should be accompanied by a singular verb, and plural subject s" +
-                "hould be accompanied by a plural verb.",
-            "As a general rule, verb tenses within a sentence or a paragraph should be consist" +
-                "ent.",
-            "Avoid using short coordinating conjunctions like “but” or “and” at the beginning " +
+            "Avoid using short coordinating conjunctions like “and” and “but” at the beginning" +
+                " of a sentence.",
+            "Avoid using short coordinating conjunctions like “and” and “so” at the beginning " +
                 "of a sentence.",
-            "Avoid using short coordinating conjunctions like “so” or “and” at the beginning o" +
-                "f a sentence.",
             "Comma splice: Two complete sentences should not be joined with only a comma. Use " +
                 "either a semicolon or a comma followed by a conjunction.",
             "Compound sentences require a comma before the conjunction.",
             "Do not put a comma before the conjunction because this is not two sentences. It i" +
                 "s one subject with a compound predicate.",
-            "Elements in a series are usually separated by commas but are separated by semicol" +
-                "ons if the elements themselves contain commas.",
-            "Here, the subject is “ ___ ,” so a plural verb form should be used.",
-            "Here, the subject is “ ___ ,” so a singular verb form should be used.",
-            "If you introduce a list with “such as,” it is redundant to use “and so on” or “et" +
-                "c.” at the end. “Such as” already means that the list is only a partial sampling" +
-                " of the items.",
-            "Only use a colon at the end of a complete sentence.",
-            "Split infinitive: in formal writing, do not put any word between “to” and the ver" +
-                "b it goes with, even though it is common in everyday speech.",
             "Use a semicolon rather than a comma to join sentences with a conjunctive adverb.",
-            "Use commas around the “such as” clause when the items listed are non-restrictive," +
-                " i.e., the sentence works with or without the list.",
-            "When possible, the simplest and clearest sentence structure is in the order of su" +
-                "bject-verb-object.",
-            "Words with opposite meanings (e.g., higher and lower) should be used in pairs and" +
-                " should not be mixed with other pairs."});
-            this.sentencesCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.sentencesCB.MaxDropDownItems = 18;
-            this.sentencesCB.Name = "sentencesCB";
-            this.sentencesCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.sentencesCB.Size = new System.Drawing.Size(399, 25);
-            this.sentencesCB.Sorted = true;
-            this.sentencesCB.ToolTipText = "Sentences";
-            this.sentencesCB.SelectedIndexChanged += new System.EventHandler(this.sentencesCB_Pick);
+            "Only use a colon at the end of a complete sentence."});
+            this.SentencesCB.Location = new System.Drawing.Point(7, 520);
+            this.SentencesCB.Name = "SentencesCB";
+            this.SentencesCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.SentencesCB.Size = new System.Drawing.Size(500, 24);
+            this.SentencesCB.TabIndex = 19;
+            this.SentencesCB.SelectedIndexChanged += new System.EventHandler(this.SentencesCB_Pick);
             // 
-            // toolStripMenuItem1
+            // WordinessLabel
             // 
-            this.toolStripMenuItem1.AutoSize = false;
-            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.MistyRose;
-            this.toolStripMenuItem1.Margin = new System.Windows.Forms.Padding(0, 0, 0, -3);
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(401, 19);
-            this.toolStripMenuItem1.Text = "Wordiness";
+            this.WordinessLabel.AutoSize = true;
+            this.WordinessLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WordinessLabel.ForeColor = System.Drawing.Color.MistyRose;
+            this.WordinessLabel.Location = new System.Drawing.Point(10, 556);
+            this.WordinessLabel.Name = "WordinessLabel";
+            this.WordinessLabel.Size = new System.Drawing.Size(84, 20);
+            this.WordinessLabel.TabIndex = 22;
+            this.WordinessLabel.Text = "Wordiness";
             // 
-            // wordinessCB
+            // WordinessCB
             // 
-            this.wordinessCB.AutoSize = false;
-            this.wordinessCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.wordinessCB.DropDownWidth = 300;
-            this.wordinessCB.Items.AddRange(new object[] {
-            "Edited for redundancy/wordiness.",
+            this.WordinessCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WordinessCB.FormattingEnabled = true;
+            this.WordinessCB.Items.AddRange(new object[] {
             "Redundancy, that is, the unnecessary repetition of words or ideas, should be avoi" +
                 "ded in academic writing.",
             "The use of too many words to convey one idea can muddle the message and divert th" +
                 "e reader’s attention. Therefore, especially academic writing, ideas need to be c" +
                 "onveyed as concisely as possible.",
+            "Wordiness (the use of many words to convey an idea) should be avoided in academic" +
+                " writing.",
             "To achieve conciseness, use the word “respectively” to link two or more groups of" +
                 " words.",
-            "Wordiness (the use of many words to convey an idea) should be avoided in academic" +
-                " writing."});
-            this.wordinessCB.Margin = new System.Windows.Forms.Padding(1, 0, 1, 8);
-            this.wordinessCB.MaxDropDownItems = 6;
-            this.wordinessCB.Name = "wordinessCB";
-            this.wordinessCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.wordinessCB.Size = new System.Drawing.Size(399, 23);
-            this.wordinessCB.Sorted = true;
-            this.wordinessCB.SelectedIndexChanged += new System.EventHandler(this.wordinessCB_Pick);
+            "Edited for redundancy/wordiness.",
+            "This was deleted because it is repetitive."});
+            this.WordinessCB.Location = new System.Drawing.Point(7, 580);
+            this.WordinessCB.MaxDropDownItems = 6;
+            this.WordinessCB.Name = "WordinessCB";
+            this.WordinessCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.WordinessCB.Size = new System.Drawing.Size(500, 24);
+            this.WordinessCB.TabIndex = 21;
+            this.WordinessCB.SelectedIndexChanged += new System.EventHandler(this.WordinessCB_Pick);
             // 
-            // toolStripContainer1
+            // ΩLabel
             // 
-            this.toolStripContainer1.BottomToolStripPanelVisible = false;
-            // 
-            // toolStripContainer1.ContentPanel
-            // 
-            this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(6, 580);
-            // 
-            // toolStripContainer1.LeftToolStripPanel
-            // 
-            this.toolStripContainer1.LeftToolStripPanel.Controls.Add(this.menuStripRegular);
-            this.toolStripContainer1.LeftToolStripPanel.MinimumSize = new System.Drawing.Size(0, 900);
-            this.toolStripContainer1.LeftToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_LeftToolStripPanel_Click);
-            this.toolStripContainer1.Location = new System.Drawing.Point(3, 3);
-            this.toolStripContainer1.Name = "toolStripContainer1";
-            this.toolStripContainer1.RightToolStripPanelVisible = false;
-            this.toolStripContainer1.Size = new System.Drawing.Size(410, 580);
-            this.toolStripContainer1.TabIndex = 1;
-            this.toolStripContainer1.Text = "toolStripContainer1";
-            this.toolStripContainer1.TopToolStripPanelVisible = false;
-            // 
-            // commentsToggleButton
-            // 
-            this.commentsToggleButton.BackColor = System.Drawing.Color.MistyRose;
-            this.commentsToggleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.commentsToggleButton.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.commentsToggleButton.ForeColor = System.Drawing.Color.DarkGreen;
-            this.commentsToggleButton.Location = new System.Drawing.Point(118, 572);
-            this.commentsToggleButton.Name = "commentsToggleButton";
-            this.commentsToggleButton.Size = new System.Drawing.Size(168, 66);
-            this.commentsToggleButton.TabIndex = 2;
-            this.commentsToggleButton.Text = "Switch to LFTE Comments";
-            this.commentsToggleButton.UseVisualStyleBackColor = false;
-            this.commentsToggleButton.Click += new System.EventHandler(this.commentsToggleButton_Click);
-            // 
-            // menuStripLFTE
-            // 
-            this.menuStripLFTE.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuStripLFTE.Location = new System.Drawing.Point(0, 0);
-            this.menuStripLFTE.Name = "menuStripLFTE";
-            this.menuStripLFTE.Size = new System.Drawing.Size(126, 810);
-            this.menuStripLFTE.TabIndex = 3;
-            this.menuStripLFTE.Text = "menuStrip1";
-            this.menuStripLFTE.Visible = false;
-            // 
-            // ωToolStripMenuItem
-            // 
-            this.ωToolStripMenuItem.ForeColor = System.Drawing.Color.MistyRose;
-            this.ωToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, -1);
-            this.ωToolStripMenuItem.Name = "ωToolStripMenuItem";
-            this.ωToolStripMenuItem.Size = new System.Drawing.Size(401, 19);
-            this.ωToolStripMenuItem.Text = "Ω";
+            this.ΩLabel.AutoSize = true;
+            this.ΩLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ΩLabel.ForeColor = System.Drawing.Color.MistyRose;
+            this.ΩLabel.Location = new System.Drawing.Point(10, 616);
+            this.ΩLabel.Name = "ΩLabel";
+            this.ΩLabel.Size = new System.Drawing.Size(21, 20);
+            this.ΩLabel.TabIndex = 24;
+            this.ΩLabel.Text = "Ω";
             // 
             // ΩCB
             // 
+            this.ΩCB.CausesValidation = false;
+            this.ΩCB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ΩCB.FormattingEnabled = true;
             this.ΩCB.Items.AddRange(new object[] {
+            "Words with opposite meanings (e.g., higher and lower) should be used in pairs and" +
+                " should not be mixed with other pairs.",
+            "As a general rule, verb tenses within a sentence or a paragraph should be consist" +
+                "ent.",
+            "Split infinitive: in formal writing, do not put any word between “to” and the ver" +
+                "b it goes with, even though it is common in everyday speech.",
+            "",
+            "A singular subject should be accompanied by a singular verb, and plural subject s" +
+                "hould be accompanied by a plural verb.",
+            "Here, the subject is “ ___ ,” so a plural verb form should be used.",
+            "Here, the subject is “ ___ ,” so a singular verb form should be used.",
+            "",
+            "When possible, the simplest and clearest sentence structure is in the order of su" +
+                "bject-verb-object.",
+            "",
+            "Use commas around the “such as” clause when the items listed are non-restrictive," +
+                " i.e., the sentence works with or without the list.",
+            "Elements in a series are usually separated by commas but are separated by semicol" +
+                "ons if the elements themselves contain commas.",
             "In academic writing, insert a comma before the conjunction that precedes the last" +
                 " element of a series of more than two items (e.g., bread, eggs, and milk).",
+            "For clarity, the words or phrases in a list should be parallel in form.",
+            "If you introduce a list with “such as,” it is redundant to use “and so on” or “et" +
+                "c.” at the end. “Such as” already means that the list is only a partial sampling" +
+                " of the items.",
+            "",
             "“i.e.” requires a comma; it is the same as saying “for example,” and then listing" +
                 " items.",
+            "The phrase “et al.” is accompanied by a plural verb, because it refers to multipl" +
+                "e people.",
             "",
-            "For clarity, the words or phrases in a list should be parallel in form.",
             "A “-tion” ending indicates a verb form that has been converted to a noun form. Of" +
                 "ten using the verb form is simpler.",
+            "",
             "The convention in English is to capitalize only the first letters of proper nouns" +
                 ", which are the official names of people, places, objects, or events, even if th" +
                 "ey are part of a technical term.",
@@ -547,11 +484,12 @@
             "The past tense is commonly used in academic writing when describing the methods a" +
                 "nd steps used in an experiment that has already been conducted.",
             "",
-            "Use an “en dash,” with spaces, for ranges. (In Word, an en dash is Ctrl + -)",
+            "For ranges, use an “en dash” with spaces around it. (In Word, an en dash is Ctrl " +
+                "+ -)",
+            "",
             "Only use “respectively” if you have two lists of items that line up with each oth" +
                 "er in the order they were listed.",
-            "The phrase “et al.” is accompanied by a plural verb, because it refers to multipl" +
-                "e people.",
+            "",
             "The preposition “in” is used when describing a change, such as an increase or dec" +
                 "rease, whereas “of” is used for the magnitude of the change.",
             "In scientific and technical writing, the prevailing style is to write out the num" +
@@ -560,11 +498,12 @@
             "",
             "This is the British spelling.",
             "This is the American spelling."});
-            this.ΩCB.MaxDropDownItems = 18;
+            this.ΩCB.Location = new System.Drawing.Point(7, 640);
+            this.ΩCB.MaxDropDownItems = 35;
             this.ΩCB.Name = "ΩCB";
             this.ΩCB.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ΩCB.Size = new System.Drawing.Size(399, 23);
-            this.ΩCB.ToolTipText = "Other Stuff";
+            this.ΩCB.Size = new System.Drawing.Size(500, 24);
+            this.ΩCB.TabIndex = 23;
             this.ΩCB.SelectedIndexChanged += new System.EventHandler(this.ΩCB_Pick);
             // 
             // CommonPhrases
@@ -573,49 +512,60 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScrollMargin = new System.Drawing.Size(10, 0);
             this.BackColor = System.Drawing.Color.DimGray;
-            this.Controls.Add(this.commentsToggleButton);
-            this.Controls.Add(this.toolStripContainer1);
-            this.Controls.Add(this.menuStripLFTE);
+            this.Controls.Add(this.ΩLabel);
+            this.Controls.Add(this.ΩCB);
+            this.Controls.Add(this.WordinessLabel);
+            this.Controls.Add(this.WordinessCB);
+            this.Controls.Add(this.SentencesLabel);
+            this.Controls.Add(this.SentencesCB);
+            this.Controls.Add(this.RepeatableCommentsLabel);
+            this.Controls.Add(this.RepeatableCommentsCB);
+            this.Controls.Add(this.FormalityLabel);
+            this.Controls.Add(this.FormalityCB);
+            this.Controls.Add(this.ContractionsLabel);
+            this.Controls.Add(this.ContractionsCB);
+            this.Controls.Add(this.CaptionsLabel);
+            this.Controls.Add(this.CaptionsCB);
+            this.Controls.Add(this.BetterWordsLabel);
+            this.Controls.Add(this.BetterWordsCB);
+            this.Controls.Add(this.ArticlesLabel);
+            this.Controls.Add(this.ArticlesCB);
+            this.Controls.Add(this.AdjectivesLabel);
+            this.Controls.Add(this.AdjectivesCB);
+            this.Controls.Add(this.AbbreviationsLabel);
+            this.Controls.Add(this.AbbreviationsCB);
+            this.Controls.Add(CommentsToggle);
             this.MinimumSize = new System.Drawing.Size(0, 520);
             this.Name = "CommonPhrases";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(422, 810);
-            this.menuStripRegular.ResumeLayout(false);
-            this.menuStripRegular.PerformLayout();
-            this.toolStripContainer1.LeftToolStripPanel.ResumeLayout(false);
-            this.toolStripContainer1.ResumeLayout(false);
-            this.toolStripContainer1.PerformLayout();
+            this.Size = new System.Drawing.Size(514, 807);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripComboBox adjectivesCB;
-        private System.Windows.Forms.ToolStripComboBox contractionsCB;
-        private System.Windows.Forms.ToolStripComboBox sentencesCB;
-        private System.Windows.Forms.ToolStripComboBox formalityCB;
-        private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.ToolStripMenuItem articlesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripComboBox articlesCB;
-        private System.Windows.Forms.ToolStripMenuItem abbreviationsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem captionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formalityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sentencesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem betterWordsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripComboBox betterWordsCB;
-        private System.Windows.Forms.ToolStripMenuItem repeatableCommentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripComboBox repeatableCommentsCB;
-        private System.Windows.Forms.Button commentsToggleButton;
-        private System.Windows.Forms.MenuStrip menuStripLFTE;
-        private System.Windows.Forms.ToolStripComboBox wordinessCB;
-        public System.Windows.Forms.MenuStrip menuStripRegular;
-        private System.Windows.Forms.ToolStripComboBox captionsCB;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.ToolStripComboBox abbreviationsCB;
-        private System.Windows.Forms.ToolStripMenuItem ωToolStripMenuItem;
-        private System.Windows.Forms.ToolStripComboBox ΩCB;
+        private System.Windows.Forms.ComboBox AbbreviationsCB;
+        private System.Windows.Forms.Label AbbreviationsLabel;
+        private System.Windows.Forms.Label AdjectivesLabel;
+        private System.Windows.Forms.ComboBox AdjectivesCB;
+        private System.Windows.Forms.Label ArticlesLabel;
+        private System.Windows.Forms.ComboBox ArticlesCB;
+        private System.Windows.Forms.Label BetterWordsLabel;
+        private System.Windows.Forms.ComboBox BetterWordsCB;
+        private System.Windows.Forms.Label CaptionsLabel;
+        private System.Windows.Forms.ComboBox CaptionsCB;
+        private System.Windows.Forms.Label ContractionsLabel;
+        private System.Windows.Forms.ComboBox ContractionsCB;
+        private System.Windows.Forms.Label FormalityLabel;
+        private System.Windows.Forms.ComboBox FormalityCB;
+        private System.Windows.Forms.Label RepeatableCommentsLabel;
+        private System.Windows.Forms.ComboBox RepeatableCommentsCB;
+        private System.Windows.Forms.Label SentencesLabel;
+        private System.Windows.Forms.ComboBox SentencesCB;
+        private System.Windows.Forms.Label WordinessLabel;
+        private System.Windows.Forms.ComboBox WordinessCB;
+        private System.Windows.Forms.Label ΩLabel;
+        private System.Windows.Forms.ComboBox ΩCB;
     }
 }

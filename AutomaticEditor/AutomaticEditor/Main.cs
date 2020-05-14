@@ -19,7 +19,7 @@ namespace AutomaticEditor
         // Choose the current Selection
         // Range range = Globals.ThisAddIn.Application.Selection.Range;
 
-        #region Start Editing method
+    #region Start Editing method
 
         public void StartEditing(String introText, object sender = null, bool isAmericanStyle = true)
         {
@@ -32,7 +32,7 @@ namespace AutomaticEditor
             commonPhrases = new CommonPhrases(currentDocument);
             commonPhrasePanel = Globals.ThisAddIn.CustomTaskPanes.Add(commonPhrases, "Common Comments");
             commonPhrasePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
-            commonPhrasePanel.Width = 440;
+            commonPhrasePanel.Width = 530;
             ActivateCommonPhrasesPanel();
 
             DisactivateSentencePanel();

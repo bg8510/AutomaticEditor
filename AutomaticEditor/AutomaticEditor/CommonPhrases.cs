@@ -15,7 +15,7 @@ namespace AutomaticEditor
             InitializeComponent();
         }
 
-        private void ApplyComment(string commentWords, ToolStripComboBox selectedCB, int index)
+        private void ApplyComment(string commentWords, ComboBox selectedCB, int index)
         {
             if (commentWords == "") return;
 
@@ -23,104 +23,105 @@ namespace AutomaticEditor
             Comment comment = Globals.ThisAddIn.Application.ActiveDocument.Comments.Add(Globals.ThisAddIn.Application.Selection.Range, commentWords);
             comment.Range.Font.Name = "Calibri";
 
-            if (selectedCB != repeatableCommentsCB)
+            if (selectedCB != RepeatableCommentsCB)
             {
                 // Remove the selected option so I can't use it twice
                 selectedCB.Items.Remove(selectedCB.Items[index]);
             }
             else
             {
-                repeatableCommentsCB.Text = "";
+                RepeatableCommentsCB.Text = "";
             }
         }
 
 #region ComboBox Handlers
-        private void articlesCB_Pick(object sender, EventArgs e)
+
+        private void AbbreviationsCB_Pick(object sender, EventArgs e)
         {
-            string selectedComment = articlesCB.SelectedItem.ToString();
-            int index = articlesCB.SelectedIndex;
-            ApplyComment(selectedComment, articlesCB, index);
+            string selectedComment = AbbreviationsCB.SelectedItem.ToString();
+            int index = AbbreviationsCB.SelectedIndex;
+            ApplyComment(selectedComment, AbbreviationsCB, index);
 
             return;
         }
 
-        private void abbreviationsCB_Pick(object sender, EventArgs e)
+        private void AdjectivesCB_Pick(object sender, EventArgs e)
         {
-            string selectedComment = abbreviationsCB.SelectedItem.ToString();
-            int index = abbreviationsCB.SelectedIndex;
-            ApplyComment(selectedComment, abbreviationsCB, index);
+            string selectedComment = AdjectivesCB.SelectedItem.ToString();
+            int index = AdjectivesCB.SelectedIndex;
+            ApplyComment(selectedComment, AdjectivesCB, index);
 
             return;
         }
 
-        private void adjectivesCB_Pick(object sender, EventArgs e)
+        private void ArticlesCB_Pick(object sender, EventArgs e)
         {
-            string selectedComment = adjectivesCB.SelectedItem.ToString();
-            int index = adjectivesCB.SelectedIndex;
-            ApplyComment(selectedComment, adjectivesCB, index);
+            string selectedComment = ArticlesCB.SelectedItem.ToString();
+            int index = ArticlesCB.SelectedIndex;
+            ApplyComment(selectedComment, ArticlesCB, index);
 
             return;
         }
 
-        private void betterWordsCB_Pick(object sender, EventArgs e)
+        private void BetterWordsCB_Pick(object sender, EventArgs e)
         {
-            string selectedComment = betterWordsCB.SelectedItem.ToString();
-            int index = betterWordsCB.SelectedIndex;
-            ApplyComment(selectedComment, betterWordsCB, index);
+            string selectedComment = BetterWordsCB.SelectedItem.ToString();
+            int index = BetterWordsCB.SelectedIndex;
+            ApplyComment(selectedComment, BetterWordsCB, index);
 
             return;
         }
 
-        private void captionsCB_Pick(object sender, EventArgs e)
+        private void CaptionsCB_Pick(object sender, EventArgs e)
         {
-            string selectedComment = captionsCB.SelectedItem.ToString();
-            int index = captionsCB.SelectedIndex;
-            ApplyComment(selectedComment, captionsCB, index);
+            string selectedComment = CaptionsCB.SelectedItem.ToString();
+            int index = CaptionsCB.SelectedIndex;
+            ApplyComment(selectedComment, CaptionsCB, index);
 
             return;
         }
 
-        private void contractionsCB_Pick(object sender, EventArgs e)
+        private void ContractionsCB_Pick(object sender, EventArgs e)
         {
-            string selectedComment = contractionsCB.SelectedItem.ToString();
-            int index = contractionsCB.SelectedIndex;
-            ApplyComment(selectedComment, contractionsCB, index);
+            string selectedComment = ContractionsCB.SelectedItem.ToString();
+            int index = ContractionsCB.SelectedIndex;
+            ApplyComment(selectedComment, ContractionsCB, index);
 
             return;
         }
 
-        private void formalityCB_Pick(object sender, EventArgs e)
+        private void FormalityCB_Pick(object sender, EventArgs e)
         {
-            string selectedComment = formalityCB.SelectedItem.ToString();
-            int index = formalityCB.SelectedIndex;
-            ApplyComment(selectedComment, formalityCB, index);
+            string selectedComment = FormalityCB.SelectedItem.ToString();
+            int index = FormalityCB.SelectedIndex;
+            ApplyComment(selectedComment, FormalityCB, index);
 
             return;
         }
 
-        private void repeatableCommentsCB_Pick(object sender, EventArgs e)
+        private void RepeatableCommentsCB_Pick(object sender, EventArgs e)
         {
-            string selectedComment = repeatableCommentsCB.SelectedItem.ToString();
-            int index = repeatableCommentsCB.SelectedIndex;
-            ApplyComment(selectedComment, repeatableCommentsCB, index);
+            string selectedComment = RepeatableCommentsCB.SelectedItem.ToString();
+            int index = RepeatableCommentsCB.SelectedIndex;
+            ApplyComment(selectedComment, RepeatableCommentsCB, index);
 
             return;
         }
 
-        private void sentencesCB_Pick(object sender, EventArgs e)
+        private void SentencesCB_Pick(object sender, EventArgs e)
         {
-            string selectedComment = sentencesCB.SelectedItem.ToString();
-            int index = sentencesCB.SelectedIndex;
-            ApplyComment(selectedComment, sentencesCB, index);
+            string selectedComment = SentencesCB.SelectedItem.ToString();
+            int index = SentencesCB.SelectedIndex;
+            ApplyComment(selectedComment, SentencesCB, index);
 
             return;
         }
 
-        private void wordinessCB_Pick(object sender, EventArgs e)
+        private void WordinessCB_Pick(object sender, EventArgs e)
         {
-            string selectedComment = wordinessCB.SelectedItem.ToString();
-            int index = wordinessCB.SelectedIndex;
-            ApplyComment(selectedComment, wordinessCB, index);
+            string selectedComment = WordinessCB.SelectedItem.ToString();
+            int index = WordinessCB.SelectedIndex;
+            ApplyComment(selectedComment, WordinessCB, index);
 
             return;
         }
@@ -135,33 +136,29 @@ namespace AutomaticEditor
         }
         #endregion
 
-        private void commentsToggleButton_Click(object sender, EventArgs e)
+        private void CommentsToggleButton_Click(object sender, EventArgs e)
         {
-            switch (commentsToggleButton.Text)
-            {
-                case "Switch to LFTE Comments":
-                    menuStripLFTE.Visible = true;
-                    menuStripRegular.Visible = false;
-                    commentsToggleButton.Text = "Switch to Regular Comments";
-                    break;
+            //switch (CommentsToggle.Text)
+            //{
+            //    case "Switch to LFTE Comments":
+            //        //menuStripLFTE.Visible = true;
+            //        AbbreviationsLabel.Visible = false;
+            //        AbbreviationsCB.Visible = false;
+            //        AdjectivesLabel.Visible = false;
+            //        AdjectivesCB.Visible = false;
+            //        CommentsToggle.Text = "Toggle to Regular Comments";
+            //        break;
 
-                case "Switch to Regular Comments":
-                    menuStripRegular.Visible = true;
-                    menuStripLFTE.Visible = false;
-                    commentsToggleButton.Text = "Switch to LFTE Comments";
-                    break;
-            }
+            //    case "Switch to Regular Comments":
+            //        //menuStripRegular.Visible = true;
+            //        AbbreviationsLabel.Visible = true;
+            //        AbbreviationsCB.Visible = true;
+            //        AdjectivesLabel.Visible = true;
+            //        AdjectivesCB.Visible = true;
+            //        CommentsToggle.Text = "Toggle to LFTE Comments";
+            //        break;
+            //}
             return;
-        }
-
-        private void menuStripRegular_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStripContainer1_LeftToolStripPanel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
