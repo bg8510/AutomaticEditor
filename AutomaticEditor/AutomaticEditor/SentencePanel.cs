@@ -13,7 +13,7 @@ namespace AutomaticEditor
     {
         public delegate void ErrorResolved();
         public static Document currentDocument;
-        public int offsetAdjustment = 0;
+        public int offsetAdjustment = 0, matchIndex = 0;
 
         public struct Error
         {
@@ -21,7 +21,7 @@ namespace AutomaticEditor
             public Range paraRange;
             public int fullOffset;
 
-            // This is to use with the List<>.sort method
+            // This is a comparer to use with the List<>.sort method
             public int Compare(Error a, Error b) 
             {
                 if (a.fullOffset > b.fullOffset) return 1;
@@ -29,9 +29,10 @@ namespace AutomaticEditor
                 return 0;
             }
         };
+
         private Error nextMatch;
-        private List<Error> errorL = new List<Error>();                            // errorL is a List<> of all the Error structs for the currentDocument to be sorted into a queue
-        private Queue<Error> errorQ = new Queue<Error>();                          // errorQ is a Queue<> of all the Error structs for the currentDocument
+        private List<Error> errorL = new List<Error>();               // errorL is a List<> of all the Error structs for the currentDocument to be sorted into a queue
+        private Queue<Error> errorQ = new Queue<Error>();             // errorQ is a Queue<> of all the Error structs for the currentDocument
 
         private int sentenceOffset, charCount;
         private string editedSentence;
@@ -53,7 +54,7 @@ namespace AutomaticEditor
 
         private void ApplyEdit_Click(object sender, EventArgs e)
         {
-            string errString = nextMatch.match.replacements[0].Value;
+            string errString = nextMatch.match.replacements[matchIndex].Value;
             errorRange = currentDocument.Range(nextMatch.fullOffset + offsetAdjustment, nextMatch.fullOffset + offsetAdjustment + charCount);
 
             errorRange.Text = errString;
@@ -64,6 +65,7 @@ namespace AutomaticEditor
         }
         
     #region Setters and Getters
+
         public void SetErrorMessage(string errorMessage)
         {
             ErrorMessage.Text = errorMessage;
@@ -285,6 +287,24 @@ namespace AutomaticEditor
             localCurrentRange.InsertAfter(replacement);
 
             return;
+        }
+
+        private void nextSuggestion_Click(object sender, EventArgs e)
+        {
+            matchIndex++;
+
+            if (matchIndex >= nextMatch.match.replacements.Count) matchIndex = 0;            
+
+            SetEditedSentence(nextMatch.match.replacements[matchIndex].Value);
+        }
+
+        private void previousSuggestion_Click(object sender, EventArgs e)
+        {
+            matchIndex--;
+
+            if (matchIndex < 0) matchIndex = nextMatch.match.replacements.Count - 1;
+
+            SetEditedSentence(nextMatch.match.replacements[matchIndex].Value);
         }
 
         #endregion

@@ -27,7 +27,7 @@ namespace AutomaticEditor
 
             CreatePanels();
 
-            DisactivateSentencePanel();
+            //DisactivateSentencePanel();
 
             // Activate track changes
             currentDocument.TrackRevisions = true;
@@ -142,7 +142,7 @@ namespace AutomaticEditor
 
 
 
-        #region String Replacer method
+    #region String Replacer method
 
         /// <summary>
         ///  STRINGREPLACER
@@ -185,7 +185,7 @@ namespace AutomaticEditor
                 }
 
                 // Move the start position, so it doesn't find the same thing again
-                range.Start = currentDocument.Content.Start + replace.Length + 1;
+                range.Start = range.Start + replace.Length + 1;
                 range.End = currentDocument.Content.End;
             }
 

@@ -118,7 +118,7 @@ namespace AutomaticEditor
             this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonStart.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStart.ForeColor = System.Drawing.Color.Firebrick;
-            this.buttonStart.Location = new System.Drawing.Point(23, 367);
+            this.buttonStart.Location = new System.Drawing.Point(23, 365);
             this.buttonStart.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(151, 61);
