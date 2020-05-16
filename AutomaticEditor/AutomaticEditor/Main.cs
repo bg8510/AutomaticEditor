@@ -25,15 +25,7 @@ namespace AutomaticEditor
         {
             bool result;
 
-            sentences = new SentencePanel(currentDocument);
-            sentencePanel = Globals.ThisAddIn.CustomTaskPanes.Add(sentences, "Grammatlin");
-            sentencePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight;
-
-            commonPhrases = new CommonPhrases(currentDocument);
-            commonPhrasePanel = Globals.ThisAddIn.CustomTaskPanes.Add(commonPhrases, "Common Comments");
-            commonPhrasePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
-            commonPhrasePanel.Width = 530;
-            ActivateCommonPhrasesPanel();
+            CreatePanels();
 
             DisactivateSentencePanel();
 
@@ -115,13 +107,7 @@ namespace AutomaticEditor
                 currentDocument.Comments.Add(Globals.ThisAddIn.Application.Selection.Range, introText).Range.Font.Name = "Calibri";
             }
 
-            //Spelldoink();
-
-            Globals.ThisAddIn.DisactivateCustomPanel();
-
-            // Make visible the side panels
-            ActivateSentencePanel();
-            ActivateCommonPhrasesPanel();
+            ActivateSecondaryPanels();
 
             //object optional = Missing.Value;
             //currentDocument.CheckSpelling(ref optional, true, true, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional, ref optional);
@@ -132,10 +118,34 @@ namespace AutomaticEditor
             return;
         }
 
-    #endregion
+        #endregion
+
+        public void CreatePanels()
+        {
+            sentences = new SentencePanel(currentDocument);
+            sentencePanel = Globals.ThisAddIn.CustomTaskPanes.Add(sentences, "Grammatlin");
+            sentencePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionRight;
+
+            commonPhrases = new CommonPhrases(currentDocument);
+            commonPhrasePanel = Globals.ThisAddIn.CustomTaskPanes.Add(commonPhrases, "Common Comments");
+            commonPhrasePanel.DockPosition = Office.MsoCTPDockPosition.msoCTPDockPositionLeft;
+            commonPhrasePanel.Width = 530;
+
+            return;
+        }
+
+        public void ActivateSecondaryPanels()
+        {
+            Globals.ThisAddIn.DisactivateCustomPanel();
+
+            // Make visible the side panels
+            ActivateSentencePanel();
+            ActivateCommonPhrasesPanel();
+        }
 
 
-    #region String Replacer method
+
+        #region String Replacer method
 
         /// <summary>
         ///  STRINGREPLACER

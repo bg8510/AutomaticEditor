@@ -182,7 +182,7 @@ namespace AutomaticEditor
             this.bypassButton.TabIndex = 7;
             this.bypassButton.Text = "Bypass this Step";
             this.bypassButton.UseVisualStyleBackColor = false;
-            this.bypassButton.Click += new System.EventHandler(this.buttonStart_Click);
+            this.bypassButton.Click += new System.EventHandler(this.bypassButton_Click);
             // 
             // SidePanel
             // 

@@ -140,7 +140,9 @@ namespace AutomaticEditor
         private void bypassButton_Click(object sender, EventArgs e)
         {
             Main main = new Main();
-            main.StartEditing("blank", sender, true);
+            main.CreatePanels();
+            main.ActivateSecondaryPanels();
+
             return;
         }
     }
