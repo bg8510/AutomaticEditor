@@ -125,6 +125,8 @@ namespace AutomaticEditor
             }
             else  // It's finished with all the errors in the queue, so start spellchecker and grammar checker
             {
+                MessageBox.Show("Grammarbot found no errors, Squidgy.");
+
                 SetOriginalSentence("");
                 SetEditedSentence("");
 
