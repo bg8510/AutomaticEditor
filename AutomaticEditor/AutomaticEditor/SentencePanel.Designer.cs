@@ -112,13 +112,13 @@
             // StartEdit
             // 
             this.StartEdit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.StartEdit.BackColor = System.Drawing.Color.LightGreen;
+            this.StartEdit.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.StartEdit.Enabled = false;
             this.StartEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.StartEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartEdit.Location = new System.Drawing.Point(56, 142);
+            this.StartEdit.Location = new System.Drawing.Point(31, 81);
             this.StartEdit.Name = "StartEdit";
-            this.StartEdit.Size = new System.Drawing.Size(95, 45);
+            this.StartEdit.Size = new System.Drawing.Size(145, 150);
             this.StartEdit.TabIndex = 5;
             this.StartEdit.Text = "Start";
             this.StartEdit.UseVisualStyleBackColor = false;
@@ -128,6 +128,9 @@
             // 
             this.nextSuggestion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nextSuggestion.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.nextSuggestion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.nextSuggestion.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+            this.nextSuggestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Cyan;
             this.nextSuggestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nextSuggestion.Location = new System.Drawing.Point(160, 363);
             this.nextSuggestion.Name = "nextSuggestion";
@@ -140,6 +143,8 @@
             // previousSuggestion
             // 
             this.previousSuggestion.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.previousSuggestion.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+            this.previousSuggestion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Cyan;
             this.previousSuggestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.previousSuggestion.Location = new System.Drawing.Point(0, 363);
             this.previousSuggestion.Name = "previousSuggestion";

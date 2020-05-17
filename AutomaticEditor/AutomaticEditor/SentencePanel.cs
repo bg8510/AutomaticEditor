@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
-using Office = Microsoft.Office.Core;
+//using System.Windows.Media;
 
 namespace AutomaticEditor
 {
@@ -44,7 +44,7 @@ namespace AutomaticEditor
             InitializeComponent();
 
             RunGrammarbot();
-            StartEdit.Enabled = true;
+            //StartEdit.Enabled = true;
         }
 
         private void RejectEdit_Click(object sender, EventArgs e)
@@ -106,7 +106,7 @@ namespace AutomaticEditor
                 errorQ.Enqueue(errorL[i]);  
             }
 
-            Console.Read();
+            //Console.Read();
 
             // Get the first error
             GetNextError();
@@ -125,7 +125,9 @@ namespace AutomaticEditor
             }
             else  // It's finished with all the errors in the queue, so start spellchecker and grammar checker
             {
-                MessageBox.Show("Grammarbot found no errors, Squidgy.");
+                ApplyEdit.Visible = false;
+                RejectEdit.Visible = false;
+                MessageBox.Show("Grammarbot is out of errors, Squidgy.");
 
                 SetOriginalSentence("");
                 SetEditedSentence("");
@@ -174,16 +176,14 @@ namespace AutomaticEditor
             {
                 for (int s = 1; s <= currentDocument.Paragraphs[p].Range.Sentences.Count; s++)
                 {
-                    //Range myRange = currentDocument.Paragraphs[p].Range;
-                    //int myCount = currentDocument.Paragraphs[p].Range.Sentences.Count;
-                    //var mySentence = currentDocument.Paragraphs[p].Range.Sentences[s];
-                    //string myText = currentDocument.Paragraphs[p].Range.Sentences[s].Text;
-
                     Range myRange = currentDocument.Range(currentDocument.Paragraphs[p].Range.Sentences[s].Start, currentDocument.Paragraphs[p].Range.Sentences[s].End);
 
                     CheckAsync(currentDocument.Paragraphs[p].Range.Sentences[s], myRange);
                 }
             }
+
+            StartEdit.Enabled = true;
+            StartEdit.BackColor = Color.LightGreen;
 
             return;
         }
@@ -191,7 +191,7 @@ namespace AutomaticEditor
         // This method handles the errors in one sentence
         private async void CheckAsync(Range currentRange, Range paraRange)
         {
-            GrammarBotClient.GrammarBot grammarBot = new GrammarBotClient.GrammarBot(new GrammarBotClient.ApiConfig());
+            GrammarBot grammarBot = new GrammarBot(new ApiConfig());
             Error currentError;
             currentError.paraRange = paraRange;
 
@@ -218,11 +218,7 @@ namespace AutomaticEditor
                     }
                     catch (Exception EX)
                     {
-                        //MessageBox.Show(EX.ToString());
-
-                        // Add an error comment
-                        //Range errRng = currentDocument.Range(0, 1);
-                        //currentDocument.Comments.Add(errRng, "EXCEPTION! \n\n" + EX.ToString());
+                        MessageBox.Show(EX.ToString());
                     }
                 }
                 else
