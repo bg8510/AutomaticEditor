@@ -31,6 +31,24 @@ namespace AutomaticEditor
             else
             {
                 RepeatableCommentsCB.Text = "";
+                if (commentWords == "This is not clear. If you contact me via your Client Manager with an explanation of your meaning, I will be happy to review and correct your wording.")
+                {
+                    selectedCB.Items.Remove(selectedCB.Items[index]);
+                    selectedCB.Items.Add("This is not clear. Again, if you contact me via your Client Manager with an explanation, I will be happy to review and correct your wording.");
+                    return;
+                }
+                else if (commentWords == "This is not clear. Again, if you contact me via your Client Manager with an explanation, I will be happy to review and correct your wording.")
+                {
+                    selectedCB.Items.Remove(selectedCB.Items[index]);
+                    selectedCB.Items.Add("This is not clear. As always, you can contact me via your Client Manager with an explanation, and I will be happy to review and correct your wording.");
+                    return;
+                }
+                else if (commentWords == "This is not clear. As always, you can contact me via your Client Manager with an explanation, and I will be happy to review and correct your wording.")
+                {
+                    selectedCB.Items.Remove(selectedCB.Items[index]);
+                    selectedCB.Items.Add("This is not clear. Again, if you contact me via your Client Manager with an explanation, I will be happy to review and correct your wording.");
+                    return;
+                }
             }
         }
 
